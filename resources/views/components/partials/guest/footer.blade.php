@@ -64,7 +64,7 @@
 
                                           <div class="footer-section-body">
 
-                                                 <p><b>PO Box Address:</b> 1000 Duluth, Hwy lawrenceville Geogia</p>
+                                                 <p><b>Address:</b> 1000 Duluth, Hwy lawrenceville Geogia</p>
 
                                                  <div class="footer-contacts">
                                                         <p>

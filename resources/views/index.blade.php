@@ -8,6 +8,7 @@
                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                     <li data-target="#carousel-example-generic" data-slide-to="4"></li>
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
@@ -37,10 +38,10 @@
                      </div>
                      <!-- End Item 4 -->
                      <!-- Item 5 -->
-                     <div class="item slide4">
+                     <div class="item slide5">
                         <h2 data-animation="animated bounceInDown"><span>PARTNER WITH ANDUSA</span></h2>
                         <h3 data-animation="animated bounceInDown">WORK WITH US TO MAKE NIGERIA A BETTER COUNTRY.</h3>
-                        <h4 data-animation="animated bounceInUp"><a href="{{ route('contact') }}">LEARN MORE</a></h4>
+                        <h4 data-animation="animated bounceInUp"><a href="{{ route('about') }}">LEARN MORE</a></h4>
                  </div>
                  <!-- End Item 5 -->
 
@@ -77,7 +78,7 @@
               <div class="text-center row">
                      <h1>WHAT WE DO?</h1>
                      <hr>
-                     <h5>The core vision of ANDUSA Americas.</h5>
+                     <h5>The core vision of ANDUSA is taking development back to Nigeria.</h5>
                      <div class="text-left">
                             <div class="clearfix col-md-4 top-off">
                                    <div class="grid-content-left"><i class="fa fa-heart"></i></div>
@@ -87,22 +88,22 @@
                                           <a href="activities.html" title="">Read More</a>
                                    </div>
                             </div>
-                            <div class="clearfix col-md-4 top-off">
+                            {{-- <div class="clearfix col-md-4 top-off">
                                    <div class="grid-content-left"><i class="fa fa-cutlery"></i></div>
                                    <div class="grid-content-wrapper">
                                           <h4>Feed for Hungry Child</h4>
                                           <p>Feed the less previlege and giving hopes.</p>
                                           <a href="activities.html" title="">Read More</a>
                                    </div>
-                            </div>
-                            <div class="clearfix col-md-4 top-off">
+                            </div> --}}
+                            {{-- <div class="clearfix col-md-4 top-off">
                                    <div class="grid-content-left"><i class="fa fa-home"></i></div>
                                    <div class="grid-content-wrapper">
                                           <h4>Home for Homeless</h4>
                                           <p>Our goal is to alleviate poverty and bring structures that works for the needy and promote through donations.</p>
                                           <a href="activities.html" title="">Read More</a>
                                    </div>
-                            </div>
+                            </div> --}}
                             <div class="clearfix col-md-4 top-off">
                                    <div class="grid-content-left"><i class="fa fa-tint"></i></div>
                                    <div class="grid-content-wrapper">
@@ -119,14 +120,14 @@
                                           <a href="activities.html" title="">Read More</a>
                                    </div>
                             </div>
-                            <div class="clearfix col-md-4 top-off">
+                            {{-- <div class="clearfix col-md-4 top-off">
                                    <div class="grid-content-left"><i class="fa fa-money"></i></div>
                                    <div class="grid-content-wrapper">
                                           <h4>Donate for Children</h4>
                                           <p>Our goal is to alleviate poverty and bring structures that works for the needy and promote through donations.</p>
                                           <a href="activities.html" title="">Read More</a>
                                    </div>
-                            </div>
+                            </div> --}}
                      </div>
               </div>
        </div>
@@ -292,13 +293,16 @@
 <section id="projects-sec">
        <div class="container">
               <div class="text-center row">
-                     <h1>latest Post</h1>
+                     <h1>Events</h1>
                      <hr>
-                     <h5>Get latest trends and update about ANDUSA USA.</h5>
+                     <h5>Get latest trends and update about ANDUSA USA Events.</h5>
+                     @php
+                     $posts = App\Models\Post::latest()->paginate(3);
+                     @endphp
                      <div class="text-center">
-                     @foreach(posts() as $post)
+                      @foreach($posts as $post)
                             <div class="clearfix col-md-4 top-off">
-                                   <div class="grid-image"><img src="images/test1.jpg"></div>
+                                   <div class="grid-image"><img  width="300" height="300" src="{{asset('storage/uploads/'.$post->banner_image) }}"></div>
                                    <div class="post-content">
                                           <h3>{{ $post->title }}</h3>
                                           <hr>
@@ -312,7 +316,11 @@
                                    </div>
                             </div>
                      @endforeach
+
                      </div>
+                     <br>
+                     <br>
+                     {{ $posts->links() }}
               </div>
        </div>
 </section>

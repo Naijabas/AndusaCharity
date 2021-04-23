@@ -15,6 +15,7 @@
               </div>
        </div>
 </div>
+
 <nav class="navbar navbar-default navbar-sticky bootsnav">
        <div class="container">
               <div class="row">
@@ -22,15 +23,17 @@
                             {{-- <a class="sponsor-button" href="sponsor-a-child.html">sponsor</a>
                             <a class="donation" href="donate.html">donate now</a> --}}
                      </div>
+
                      <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse"   data-target="#navbar-menu">
                                    <i class="fa fa-bars"></i>
                             </button>
-                            <a class="navbar-brand logo" href="{{ route('index') }}">
-                            <img src="{{ asset('logo.jpg') }}" class="img-responsive" width="100px"/></a>
-                     </div>
-                     <div class="collapse navbar-collapse" id="navbar-menu">
-                            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                            <a class="navbar-brand logo" href="{{ route('index') }}"><div><strong ><span></span></strong></div>
+                             <img src="{{ asset('logo.jpg') }}" class="img-responsive" width="100px"/></a>
+                      </div>
+                             <div class="collapse navbar-collapse" id="navbar-menu">
+                               <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                                    <li><a href="{{ route('index') }}">Home</a></li>
                                    <li><a href="{{ route('about') }}">About Us</a></li>
                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>

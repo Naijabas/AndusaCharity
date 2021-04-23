@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,11 @@ Route::post('/create-contact', [App\Http\Controllers\ContactController::class, '
 Route::get('/biography/{id}', [App\Http\Controllers\TrusteeController::class, 'biography'])->name('biography');
 Route::get('/blog-post/{id}', [App\Http\Controllers\PostController::class, 'post'])->name('blog-post');
 
+
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 /**
  * contact routes
  */
@@ -47,8 +49,11 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 
 /**
  * admin routes
+ *
  */
-      Route::get('/admin', function () {  return view('server.admin.create'); })->name('admin');
+
+
+      Route::get('/admin', function () {  return view('server.admin.create'); })->name('admin')->middleware('rolechecker');
       Route::post('/admin-create', [App\Http\Controllers\AdminController::class, 'store'] )->name('admin-create');
       Route::get('/admins', [App\Http\Controllers\AdminController::class, 'index'] )->name('admins');
       Route::get('/admin-show/{id}', [App\Http\Controllers\AdminController::class, 'show'] )->name('admin-show');

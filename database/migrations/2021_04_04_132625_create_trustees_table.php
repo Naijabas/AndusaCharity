@@ -20,6 +20,7 @@ class CreateTrusteesTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('occupation');
+            $table->string('post');
             $table->binary('passport');
             $table->softDeletes();
             $table->timestamps();

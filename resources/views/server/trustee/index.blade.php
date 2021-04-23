@@ -42,6 +42,7 @@
                                                                       <th>Email</th>
                                                                       <th>Phone</th>
                                                                       <th>Occupation</th>
+                                                                      <th>POST held</th>
                                                                       <th>Address</th>
                                                                       <th>Date</th>
                                                                       <th>Action</th>
@@ -58,6 +59,7 @@
                                                                       <td>{{ $trustee->email }}</td>
                                                                       <td>{{ $trustee->phone }}</td>
                                                                       <td>{{ $trustee->occupation }}</td>
+                                                                      <td>{{ $trustee->post }}</td>
                                                                       <td>{{ $trustee->address }}</td>
                                                                       <td>{{ $trustee->created_at->diffForHumans() }}</td>
                                                                       <td>
@@ -80,6 +82,7 @@
                                                                       <th>Email</th>
                                                                       <th>Phone</th>
                                                                       <th>Occupation</th>
+                                                                      <th>POST</th>
                                                                       <th>Address</th>
                                                                       <th>Date</th>
                                                                       <th>Action</th>

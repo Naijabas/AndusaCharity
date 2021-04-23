@@ -48,7 +48,7 @@
                                                         </li>
                                                         <li class="list-group-item">
                                                                <b>Date</b> <a class="float-right">{{ $admin->created_at->diffForHumans() }}</a>
-                                                        </li>
+                                                        </li> 
                                                  </ul>
 
                                                  <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
@@ -167,7 +167,7 @@
                                                         <!-- /.tab-pane -->
 
                                                         <div class="tab-pane" id="settings">
-                                                               <form class="form-horizontal" action="{{ route('admin-update', $admin->id) }}" method="post">
+                                                            <form class="form-horizontal" action="{{ route('admin-update', $admin->id) }}" method="post" enctype="multipart/form-data">
                                                                       @csrf
                                                                       {{ method_field('PATCH') }}
                                                                       <div class="form-group row">
@@ -203,6 +203,18 @@
                                                                                     @enderror
                                                                              </div>
                                                                       </div>
+                                                                      <div class="mb-3">
+                                                                        <label for="passport">Passport</label>
+                                                                        <div class="custom-file">
+                                                                               <input type="file" class="custom-file-input @error('passport') is-invalid @enderror" id="passport" name="passport" value="passport">
+                                                                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                                               @error('passport')
+                                                                               <span class="invalid-feedback" role="alert">
+                                                                                      <strong>{{ $message }}</strong>
+                                                                               </span>
+                                                                               @enderror
+                                                                        </div>
+                                                                 </div>
                                                                       <div class="form-group row">
                                                                              <div class="offset-sm-2 col-sm-10">
                                                                                     <button type="submit" class="btn btn-danger">Submit</button>

@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Repositories\AdminRepository;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     private $adminRepository;
 
+
     public function __construct(AdminRepository $adminRepository)
     {
+        //   dd(Auth::user());
+        
+
         $this->adminRepository = $adminRepository;
     }
 

@@ -107,7 +107,6 @@
                                                         <label for="password-confirm">Confirm Password</label>
                                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Enter password confirmation">
                                                  </div>
-
                                                  <p class="mb-0 text-sm">
                                                         <button type="submit" class="btn btn-primary">Submit</button>
                                                  </p>

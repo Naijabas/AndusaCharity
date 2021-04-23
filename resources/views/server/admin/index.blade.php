@@ -8,12 +8,12 @@
               <div class="container-fluid">
                      <div class="mb-2 row">
                             <div class="col-sm-6">
-                                   <h1>Blog Post</h1>
+                                   <h1>Manage Admins</h1>
                             </div>
                             <div class="col-sm-6">
                                    <ol class="breadcrumb float-sm-right">
                                           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                                          <li class="breadcrumb-item active">Blogs</li>
+                                          <li class="breadcrumb-item active">Admin</li>
                                    </ol>
                             </div>
                      </div>
@@ -46,6 +46,9 @@
                                                                </tr>
                                                         </thead>
                                                         <tbody>
+                                                            @can('admin')
+
+                                                            @endif
                                                                @php
                                                                $i = 1;
                                                                @endphp
@@ -69,6 +72,8 @@
                                                                </tr>
                                                                @endforeach
                                                         </tbody>
+
+
                                                         <tfoot>
                                                                <tr>
                                                                       <th>No..</th>

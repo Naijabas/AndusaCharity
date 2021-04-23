@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Repositories;
 use App\Models\Post;
@@ -11,6 +11,7 @@ class PostRepository
     public function __construct(Post $model)
     {
         $this->model = $model ;
+
     }
 
     public function createPost($request)
@@ -30,7 +31,7 @@ class PostRepository
         return  $this->model->create([
             'title' => $request->title,
             'body' =>  $request->body,
-            'banner_image' =>  $fileNameToStore 
+            'banner_image' =>  $fileNameToStore
         ]);
     }
 
@@ -48,10 +49,13 @@ class PostRepository
     {
         $request->validate([
             'title' => 'required',
+            'banner_image' => 'required',
             'body' => 'required',
         ]);
+        
         $this->model->findOrFail($id)->update([
             'title' => $request->title,
+            'banner_image' => $request->banner_image,
             'body'  => $request->body
         ]);
         return $this->model;

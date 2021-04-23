@@ -9,6 +9,8 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
+
 body {
   margin: 0;
 }
@@ -98,6 +100,7 @@ hr {
      -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
+
 pre {
   overflow: auto;
 }
@@ -1369,7 +1372,7 @@ a.text-warning:focus {
 }
 a.text-danger:hover,
 a.text-danger:focus {
-  color: #843534;
+  color: #29a068;
 }
 .bg-primary {
   color: #fff;

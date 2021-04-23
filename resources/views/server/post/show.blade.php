@@ -41,8 +41,11 @@
                                                  <div class="mailbox-read-info">
                                                         <h5>Blog Title : {{ $post->title}}</h5>
                                                         <h6>From: Admin
-                                                               <span class="float-right mailbox-read-time">{{ $post->created_at->diffForHumans() }}</span></h6>
+                                                    <span class="float-right mailbox-read-time">{{ $post->created_at->diffForHumans() }}</span></h6>
                                                  </div>
+                                                 <h5>Picture:</h5> <img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$post->banner_image) }}" alt="" >
+                                                 <td></td>
+                                                 <tr>
                                                  <div class="p-4 mailbox-read-post">
                                                         <p class="text-justify">
                                                                {!! $post->body !!}
@@ -99,6 +102,19 @@
                                                  </span>
                                                  @enderror
                                           </div>
+ <div class="mb-3">
+                                                        <label for="exampleInputEmail1">Banner Image</label>
+                                                        <div class="custom-file">
+                                                               <input type="file" class="custom-file-input @error('banner_image') is-invalid @enderror" id="exampleInputFile" name="banner_image">
+                                                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                               @error('banner_image')
+                                                               <span class="invalid-feedback" role="alert">
+                                                                      <strong>{{ $message }}</strong>
+                                                               </span>
+                                                               @enderror
+                                                        </div>
+                                                 </div>
+
                                           <div class="mb-3">
                                                  <label for="title">Body</label>
                                                  <textarea name="body" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $post->body }}</textarea>

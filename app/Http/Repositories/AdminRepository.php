@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Repositories;
 use App\Models\User;
@@ -60,10 +60,18 @@ class AdminRepository
             'email' => 'required',
             'phone' => 'required',
         ]);
+        if ($request->hasFile('passport')) {
+            $filenameWithExt = $request->file('passport')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME );
+            $extension = $request->file('passport')->getClientOriginalExtension();
+            $fileNameToStore = $filename  .'_'.time().'.'.$extension;
+            $path = $request->file('passport')->storeAs('public/uploads', $fileNameToStore);
+        }
         $this->model->findOrFail($id)->update([
             'name' => $request->name,
             'email' =>  $request->email,
             'phone' => $request->phone,
+            'passport' =>  $fileNameToStore,
         ]);
         return $this->model;
     }

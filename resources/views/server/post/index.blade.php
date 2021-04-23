@@ -8,7 +8,7 @@
               <div class="container-fluid">
                      <div class="mb-2 row">
                             <div class="col-sm-6">
-                                   <h1>Blog Post</h1>
+                                   <h1>Blog Post and Events</h1>
                             </div>
                             <div class="col-sm-6">
                                    <ol class="breadcrumb float-sm-right">
@@ -38,6 +38,7 @@
                                                         <thead>
                                                                <tr>
                                                                       <th>No..</th>
+                                                                      <th>Image</th>
                                                                       <th>Title</th>
                                                                       <th>Date</th>
                                                                       <th>Action</th>
@@ -50,6 +51,7 @@
                                                                @foreach($posts as $post)
                                                                <tr>
                                                                       <td>{{ $i++ }}</td>
+                                                                      <td><img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$post->banner_image) }}" alt="" width="20"></td>
                                                                       <td>{{ $post->title }}</td>
                                                                       <td>{{ $post->created_at->diffForHumans() }}</td>
                                                                       <td>
@@ -68,6 +70,7 @@
                                                         <tfoot>
                                                                <tr>
                                                                       <th>No..</th>
+                                                                      <th>Image</th>
                                                                       <th>Title</th>
                                                                       <th>Date</th>
                                                                       <th>Action</th>

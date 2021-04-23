@@ -39,7 +39,7 @@
            <div class="text-center row">
                   <h1>WHAT WE DO?</h1>
                   <hr>
-                  <h5>The core vision of ANDUSA Americas.</h5>
+                  <h5>The core vision of ANDUSA is taking development back to Nigeria.</h5>
                   <div class="text-left">
                          <div class="clearfix col-md-4 top-off">
                                 <div class="grid-content-left"><i class="fa fa-heart"></i></div>
@@ -49,22 +49,22 @@
                                        <a href="activities.html" title="">Read More</a>
                                 </div>
                          </div>
-                         <div class="clearfix col-md-4 top-off">
+                         {{-- <div class="clearfix col-md-4 top-off">
                                 <div class="grid-content-left"><i class="fa fa-cutlery"></i></div>
                                 <div class="grid-content-wrapper">
                                        <h4>Feed for Hungry Child</h4>
                                        <p>Feed the less previlege and giving hopes.</p>
                                        <a href="activities.html" title="">Read More</a>
                                 </div>
-                         </div>
-                         <div class="clearfix col-md-4 top-off">
+                         </div> --}}
+                         {{-- <div class="clearfix col-md-4 top-off">
                                 <div class="grid-content-left"><i class="fa fa-home"></i></div>
                                 <div class="grid-content-wrapper">
                                        <h4>Home for Homeless</h4>
                                        <p>Our goal is to alleviate poverty and bring structures that works for the needy and promote through donations.</p>
                                        <a href="activities.html" title="">Read More</a>
                                 </div>
-                         </div>
+                         </div> --}}
                          <div class="clearfix col-md-4 top-off">
                                 <div class="grid-content-left"><i class="fa fa-tint"></i></div>
                                 <div class="grid-content-wrapper">
@@ -81,14 +81,14 @@
                                        <a href="activities.html" title="">Read More</a>
                                 </div>
                          </div>
-                         <div class="clearfix col-md-4 top-off">
+                         {{-- <div class="clearfix col-md-4 top-off">
                                 <div class="grid-content-left"><i class="fa fa-money"></i></div>
                                 <div class="grid-content-wrapper">
                                        <h4>Donate for Children</h4>
                                        <p>Our goal is to alleviate poverty and bring structures that works for the needy and promote through donations.</p>
                                        <a href="activities.html" title="">Read More</a>
                                 </div>
-                         </div>
+                         </div> --}}
                   </div>
            </div>
     </div>
@@ -99,19 +99,24 @@
               <div class="text-center row">
                      <h1>MEET OUR TEAM</h1>
                      <hr>
-                     <h5>We would like to introduce you to our Leadership team of Association of Nigerians in Diaspora Organization, USA. Our Leadership team is passionate about the collective progress of Nigerians in Diaspora and working together to build a greater Nigeria.</h5>
-                     @foreach(trustees() as $trustee)
-                            <div class="member col-xs-6 col-md-3">
+                     <p>We would like to introduce you to our Leadership team of Association of Nigerians in Diaspora Organization, USA. Our Leadership team is passionate about the collective progress of Nigerians in Diaspora and working together to build a greater Nigeria.</p>
+                     @php
+                     $trustees = App\Models\Trustee::oldest()->paginate(4);
+                     @endphp
+                     @foreach($trustees as $trustee)
+                            <div class="member col-md-6 col-md-3">
                                    <div class="inner">
-                                          <div class="avatar-inner"><img src="{{asset('storage/uploads/'.$trustee->passport) }}"></div>
+                                          <div class="avatar-inner"><img width="300" height="300" src="{{asset('storage/uploads/'.$trustee->passport) }} ">
                                           <div class="info">
                                                  <div class="name"><a href="{{ route('biography',$trustee->id) }}"> {{ $trustee->name }} </a></div>
-                                                 <div class="regency">Volunteer</div>
+                                                 <div class="regency">{{ $trustee->post }} </div>
                                           </div>
                                    </div>
                             </div>
+                            </div>
                      @endforeach
               </div>
+              {{ $trustees->links() }}
        </div>
 </section>
 

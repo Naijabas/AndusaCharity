@@ -9,8 +9,8 @@
        <meta name="robots" content="index,follow">
 
        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-       <title>{{ config('app.name', 'Laravel') }}</title>
+       <link rel="icon" type="image/jpg" href="{{asset('public')}}/favicon.jpg">
+       <title>{{ config('app.name', 'ANDUSA') }}</title>
 
        <link href="{{ asset('css/font-awesome.min.css') }} " rel="stylesheet">
        <link href="{{ asset('css/animate.css') }} " rel="stylesheet">

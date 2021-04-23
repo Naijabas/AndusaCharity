@@ -12,6 +12,6 @@ class Trustee extends Model
     use HasFactory, SoftDeletes, UsesUuid;
 
     protected $fillable = [
-        'name','email','phone','address','occupation','bio','passport'
+        'name','email','phone','address','occupation','bio','post','passport'
     ];
 }

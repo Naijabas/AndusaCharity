@@ -21,7 +21,7 @@
                      <h1>{{ $post->title }}</h1> <br/>
                      <div class="avatar-inner"><img src="{{asset('storage/uploads/'.$post->banner_image) }}" width="300px"></div>
                      <hr>
-                     <h5 class="text-justify text-lead">{!! $post->body !!}</h5>
+                     <p class="text-justify text-lead">{!! $post->body !!}</p>
               </div>
        </div>
 </section>

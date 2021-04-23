@@ -88,7 +88,7 @@
                                                                </div>
                                                         </div>
                                                         <div class="tab-pane" id="settings">
-                                                               <form class="form-horizontal" action="{{ route('trustee-update', $trustee->id) }}" method='post'>
+                                                               <form class="form-horizontal" action="{{ route('trustee-update', $trustee->id) }}" method='post' enctype="multipart/form-data">
                                                                       @csrf
                                                                       {{ method_field('PATCH') }}
                                                                       <div class="form-group row">
@@ -134,9 +134,21 @@
                                                                                     </span>
                                                                                     @enderror
                                                                              </div>
-                                                                      </div>
-                                                                      <div class="form-group row">
-                                                                             <label for="inputName2" class="col-sm-2 col-form-label">Address</label>
+                                                                             <div>
+
+                                                                             <div class="form-group row">
+                                                                                <label for="inputName2" class="col-sm-2 col-form-label">Post Held</label>
+                                                                                <div class="col-sm-10">
+                                                                                       <input type="test" name="post" value="{{ $trustee->post }}" class="form-control @error('post') is-invalid @enderror" placeholder="Enter Post Held">
+                                                                                       @error('post')
+                                                                                       <span class="invalid-feedback" role="alert">
+                                                                                              <strong>{{ $message }}</strong>
+                                                                                       </span>
+                                                                                       @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                         <div class="form-group row">
+                                                                      <label for="inputName2" class="col-sm-2 col-form-label">Address</label>
                                                                              <div class="col-sm-10">
                                                                                     <textarea name="address" class="form-control @error('address') is-invalid @enderror" placeholder="Enter address">{{ $trustee->address }}</textarea>
                                                                                     @error('address')
@@ -145,11 +157,24 @@
                                                                                     </span>
                                                                                     @enderror
                                                                              </div>
+                                                                            </div>
+                                                                      <div class="form-group row">
+                                                                        <label for="passport">Passport</label>
+                                                                        <div class="custom-file">
+                                                                               <input type="file" class="custom-file-input @error('passport') is-invalid @enderror" id="passport" name="passport" value="passport">
+                                                                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                                               @error('passport')
+                                                                               <span class="invalid-feedback" role="alert">
+                                                                                      <strong>{{ $message }}</strong>
+                                                                               </span>
+                                                                               @enderror
+                                                                        </div>
                                                                       </div>
+
                                                                       <div class="form-group row">
                                                                              <label for="inputName2" class="col-sm-2 col-form-label">Biography</label>
                                                                              <div class="col-sm-10">
-                                                                                     <textarea name="bio" class="textarea @error('bio') is-invalid @enderror" placeholder="Enter blog body" style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $trustee->bio }}</textarea>
+                                                                                     <textarea  name="bio" class="textarea @error('bio') is-invalid @enderror" placeholder="Enter blog body" style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $trustee->bio }}</textarea>
                                                                                     @error('bio')
                                                                                            <span class="invalid-feedback" role="alert">
                                                                                                   <strong>{{ $message }}</strong>
@@ -157,11 +182,13 @@
                                                                                     @enderror
                                                                              </div>
                                                                       </div>
-                                                                      <div class="form-group row">
+
+                                                                        <div class="form-group row">
                                                                              <div class="offset-sm-2 col-sm-10">
                                                                                     <button type="submit" class="btn btn-danger">Submit</button>
                                                                              </div>
                                                                       </div>
+                                                                             </div>
                                                                </form>
                                                         </div>
                                                         <!-- /.tab-pane -->

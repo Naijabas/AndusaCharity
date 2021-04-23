@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 namespace App\Http\Repositories;
 
 use App\Models\Trustee;
+use Intervention\Image\ImageManager;
 use Image;
 
 class TrusteeRepository
@@ -22,6 +23,7 @@ class TrusteeRepository
             'phone' => 'required|unique:trustees',
             'passport' => 'required|image',
             'occupation' => 'required',
+            'post' => 'required',
             'address' => 'required',
             'bio' => 'required'
         ]);
@@ -36,16 +38,17 @@ class TrusteeRepository
             'name' => $request->name,
             'email' =>  $request->email,
             'phone' => $request->phone,
-            'passport' =>  $fileNameToStore,
+            'passport' => $fileNameToStore,
             'address' => $request->address,
             'occupation' => $request->occupation,
+            'post' => $request->post,
             'bio' => $request->bio
         ]);
     }
 
     public function allTrustee()
     {
-        return $this->model->paginate(10);
+        return $this->model->paginate(5);
     }
 
     public function showByID($id)
@@ -60,17 +63,29 @@ class TrusteeRepository
             'email' => 'required',
             'phone' => 'required',
             'occupation' => 'required',
+            'passport' =>  'required|image',
             'address' => 'required',
+            'post' => 'required',
             'bio' => 'required'
         ]);
+        if ($request->hasFile('passport')) {
+            $filenameWithExt = $request->file('passport')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME );
+            $extension = $request->file('passport')->getClientOriginalExtension();
+            $fileNameToStore = $filename  .'_'.time().'.'.$extension;
+            $path = $request->file('passport')->storeAs('public/uploads', $fileNameToStore);
+        }
         $this->model->findOrFail($id)->update([
             'name' => $request->name,
             'email' =>  $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
             'occupation' => $request->occupation,
+            'passport' => $fileNameToStore,
+            'post' => $request->post,
             'bio' => $request->bio
         ]);
+
         return $this->model;
     }
 

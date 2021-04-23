@@ -21,7 +21,7 @@
                      <h1>ABOUT <br/>{{ $trustee->name }}</h1> <br/>
                      <div class="avatar-inner"><img src="{{asset('storage/uploads/'.$trustee->passport) }}" width="300px"></div>
                      <hr>
-                     <h5 class="text-justify text-lead">{!! $trustee->bio !!}</h5>
+                     <p class="text-justify text-lead">{!! $trustee->bio !!}</p>
               </div>
        </div>
 </section>

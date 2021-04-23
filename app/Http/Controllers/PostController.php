@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Post;
 
 use Illuminate\Http\Request;
 use App\Http\Repositories\PostRepository;
@@ -14,12 +15,20 @@ class PostController extends Controller
         $this->postRepository = $postRepository;
     }
 
+    public function index2()
+    {
+      // $posts = Post::paginate(3);
+     //  $posts = $this->postRepository->allPost();
+        return view('post', compact('posts'));
+    }
+
     public function index()
     {
+
+      //  $posts = PostRepository::paginate(3);
         $posts = $this->postRepository->allPost();
         return view('server.post.index', compact('posts'));
     }
-
     public function store(Request $request)
     {
         $this->postRepository->createPost($request);
@@ -31,9 +40,10 @@ class PostController extends Controller
         $post = $this->postRepository->showByID($id);
         return view('server.post.show', compact('post'));
     }
-    
+
     public function post($id)
     {
+
         $post = $this->postRepository->showByID($id);
         return view('post', compact('post'));
     }

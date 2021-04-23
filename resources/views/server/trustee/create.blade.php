@@ -78,6 +78,15 @@
                                                         @enderror
                                                  </div>
                                                  <div class="mb-3">
+                                                    <label for="exampleInputEmail1">Post Held</label>
+                                                    <input type="test" name="post" class="form-control @error('post') is-invalid @enderror" placeholder="Enter Post Held">
+                                                    @error('occupation')
+                                                    <span class="invalid-feedback" role="alert">
+                                                           <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                             </div>
+                                                 <div class="mb-3">
                                                         <label for="exampleInputEmail1">Address</label>
                                                         <textarea name="address" class="form-control @error('address') is-invalid @enderror" placeholder="Enter address"></textarea>
                                                         @error('address')

@@ -7,7 +7,7 @@
               <div class="container-fluid">
                      <div class="mb-2 row">
                             <div class="col-sm-6">
-                                   <h1>Create Blog Post</h1>
+                                   <h1>Create Blog Post or Event</h1>
                             </div>
                             <div class="col-sm-6">
                                    <ol class="breadcrumb float-sm-right">
@@ -53,9 +53,9 @@
                                                  <div class="mb-3">
                                                         <label for="exampleInputEmail1">Banner Image</label>
                                                         <div class="custom-file">
-                                                               <input type="file" class="custom-file-input @error('anner_image') is-invalid @enderror" id="exampleInputFile" name="banner_image">
+                                                               <input type="file" class="custom-file-input @error('banner_image') is-invalid @enderror" id="exampleInputFile" name="banner_image">
                                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                                               @error('anner_image')
+                                                               @error('banner_image')
                                                                <span class="invalid-feedback" role="alert">
                                                                       <strong>{{ $message }}</strong>
                                                                </span>
