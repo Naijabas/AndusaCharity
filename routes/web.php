@@ -53,7 +53,7 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
  */
 
 
-      Route::get('/admin', function () {  return view('server.admin.create'); })->name('admin')->middleware('rolechecker');
+      Route::get('/admin', function () {  return view('server.admin.create'); })->name('admin')->middleware('auth');
       Route::post('/admin-create', [App\Http\Controllers\AdminController::class, 'store'] )->name('admin-create');
       Route::get('/admins', [App\Http\Controllers\AdminController::class, 'index'] )->name('admins');
       Route::get('/admin-show/{id}', [App\Http\Controllers\AdminController::class, 'show'] )->name('admin-show');
@@ -70,3 +70,6 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
       Route::get('/trustee-show/{id}', [App\Http\Controllers\TrusteeController::class, 'show'] )->name('trustee-show');
       Route::patch('/trustee-update/{id}', [App\Http\Controllers\TrusteeController::class, 'update'] )->name('trustee-update');
       Route::delete('/trustee-destroy/{id}', [App\Http\Controllers\TrusteeController::class, 'destroy'] )->name('trustee-destroy');
+
+
+      Route::resource('event', 'App\Http\Controllers\EventsController');

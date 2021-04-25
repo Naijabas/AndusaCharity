@@ -30,7 +30,7 @@
                                    <i class="fa fa-bars"></i>
                             </button>
                             <a class="navbar-brand logo" href="{{ route('index') }}"><div><strong ><span></span></strong></div>
-                             <img src="{{ asset('logo.jpg') }}" class="img-responsive" width="100px"/></a>
+                             <img src="{{ asset('logo.JPG') }}" class="img-responsive" width="100px"/></a>
                       </div>
                              <div class="collapse navbar-collapse" id="navbar-menu">
                                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
@@ -38,7 +38,7 @@
                                    <li><a href="{{ route('about') }}">About Us</a></li>
                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                    <li><a href="{{ route('about') }}">Resources</a></li>
-                                   <li><a href="{{ route('contact') }}">News and Events</a></li>
+                                   <li><a href="{{ route('event.index') }}">News and Events</a></li>
                             </ul>
                      </div>
               </div>
