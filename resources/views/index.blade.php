@@ -66,8 +66,8 @@
                      <h5>ABOUT US</h5>
                      <p>Association of Nigerians in Diaspora Organization Americas was incorporated as a Non-Profit Organization in 2001 and is headquartered in Washington DC.</p>
                      <div class="text-center">
-                            <a href="donate.html" class="btn1">donate now</a>
-                            <a href="about-us.html" class="btn2">Read More</a>
+                            {{-- <a href="donate.html" class="btn1">donate now</a> --}}
+                            {{-- <a href="about-us.html" class="btn2">Read More</a> --}}
                      </div>
               </div>
        </div>
