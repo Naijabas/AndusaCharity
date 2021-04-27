@@ -38,6 +38,14 @@
                                             </p>
                                      </a>
                               </li>
+                              <li class="nav-item">
+                                <a href="{{ route('posts') }}" class="nav-link">
+                                       <i class="nav-icon fas fa-copy"></i>
+                                       <p>
+                                            Upcoming Event
+                                       </p>
+                                </a>
+                         </li>
                                <li class="nav-item">
                                      <a href="{{ route('admins') }}" class="nav-link">
                                             <i class="nav-icon fas fa-user-secret"></i>

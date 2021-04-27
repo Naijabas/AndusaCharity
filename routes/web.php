@@ -52,7 +52,6 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
  *
  */
 
-
       Route::get('/admin', function () {  return view('server.admin.create'); })->name('admin')->middleware('auth');
       Route::post('/admin-create', [App\Http\Controllers\AdminController::class, 'store'] )->name('admin-create');
       Route::get('/admins', [App\Http\Controllers\AdminController::class, 'index'] )->name('admins');
@@ -70,6 +69,40 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
       Route::get('/trustee-show/{id}', [App\Http\Controllers\TrusteeController::class, 'show'] )->name('trustee-show');
       Route::patch('/trustee-update/{id}', [App\Http\Controllers\TrusteeController::class, 'update'] )->name('trustee-update');
       Route::delete('/trustee-destroy/{id}', [App\Http\Controllers\TrusteeController::class, 'destroy'] )->name('trustee-destroy');
-
+/**
+ * EVENT
+ */
 
       Route::resource('event', 'App\Http\Controllers\EventsController');
+
+/**
+ * REGISTRATION
+ */
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'store'] )->name('register');
+
+//end
+
+/**
+ * Upcoming Events routes
+ */
+Route::get('/upcomingEvent', function () {  return view('server.upcomingEvents.create'); })->name('upcomingEvent');
+Route::post('/upcomingEvents-create', [App\Http\Controllers\UpcomingEventsController::class, 'store'] )->name('upcominEvents-create');
+Route::get('/upcomingEvents', [App\Http\Controllers\UpcomingEventsController::class, 'index'] )->name('upcomingEvents');
+Route::get('/upcomingEvents-show/{id}', [App\Http\Controllers\UpcomingEventsController::class, 'show'] )->name('upcomingEvents-show');
+Route::patch('/upcomingEvents-update/{id}', [App\Http\Controllers\UpcomingEventsController::class, 'update'] )->name('upcomingEvents-update');
+Route::delete('/upcomingEvents-destroy/{id}', [App\Http\Controllers\UpcomingEventsController::class, 'destroy'] )->name('upcomingEvents-destroy');
+//end
+
+
+/**
+ * Projects routes
+ */
+
+Route::get('/Project', function () {  return view('server.Projects.create'); })->name('Project');
+Route::post('/Projects-create', [App\Http\Controllers\ProjectsController::class, 'store'] )->name('Projects-create');
+Route::get('/Projects', [App\Http\Controllers\ProjectsController::class, 'index'] )->name('Projects');
+Route::get('/Projects-show/{id}', [App\Http\Controllers\ProjectsController::class,'show'] )->name('Projects-show');
+Route::patch('/Projects-update/{id}', [App\Http\Controllers\ProjectsController::class, 'update'] )->name('Projects-update');
+Route::delete('/Projects-destroy/{id}', [App\Http\Controllers\ProjectsController::class, 'destroy'] )->name('Projects-destroy');
+//end
+

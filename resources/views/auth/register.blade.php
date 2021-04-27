@@ -10,18 +10,23 @@
 <body  >
   <br>
 <div class="cont" style="background-color: #e7f5ee;">
-  <div class="form sign-in">
+  <div class="form sign-in" method="POST" action="{{ route('login') }}">
+    @csrf
     <h2>Welcome back,</h2>
     <label>
-      <span style="color: black;">Email</span>
+           <span style="color: black;">Email</span>
       <input type="email" />
     </label>
     <label>
       <span style="color: black;">Password</span>
       <input type="password" />
     </label>
-    <p class="forgot-pass" style="color: black;">Forgot password?</p>
+    @if (Route::has('password.request'))
+    <a href="{{ route('password.request') }}">
+    <p class="forgot-pass"  style="color: black;">Forgot password?</p></a>
+    @endif
     <button type="button" class="submit"  style="background-color: #1ebe6e; color: white;">Sign In</button>
+
     <!-- <button type="button" class="fb-btn">Connect with <span>facebook</span></button> -->
   </div>
   <div class="sub-cont" style="background-color: #e7f5ee;">
@@ -40,8 +45,11 @@
       </div>
     </div>
     <div class="form sign-up">
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
       <h2>Time to feel like home,</h2>
-      <label>
+      <label >
         <span style="color: black;">Name</span>
         <input type="text" />
       </label>

@@ -31,17 +31,17 @@
                             <h4 data-animation="animated bounceInUp"><a href="{{ route('contact') }}">REGISTER HERE</a></h4>
                      </div>
                      <!-- Item 4 -->
-                     <div class="item slide4">
+                     <div class="item slide5">
                             <h2 data-animation="animated bounceInDown"><span>UPCOMING ANDUSA EVENTS</span></h2>
                             <h3 data-animation="animated bounceInDown">JOIN US FOR OUR NEXT EVENT.</h3>
-                            <h4 data-animation="animated bounceInUp"><a href="{{ route('about') }}">FIND OUT MORE</a></h4>
+                            <h4 data-animation="animated bounceInUp"><a href="{{ route('about') }}">LEARN MORE</a></h4>
                      </div>
                      <!-- End Item 4 -->
                      <!-- Item 5 -->
                      <div class="item slide5">
                         <h2 data-animation="animated bounceInDown"><span>PARTNER WITH ANDUSA</span></h2>
                         <h3 data-animation="animated bounceInDown">WORK WITH US TO MAKE NIGERIA A BETTER COUNTRY.</h3>
-                        <h4 data-animation="animated bounceInUp"><a href="{{ route('about') }}">LEARN MORE</a></h4>
+                        <h4 data-animation="animated bounceInUp"><a href="{{route('about')}}">LEARN MORE</a></h4>
                  </div>
                  <!-- End Item 5 -->
 
@@ -183,38 +183,34 @@
                      <h1>OUR PROJECTS</h1>
                      <hr>
                      <h5>ANDUSA ongoing and completed projects.</h5>
+                     @php
+                     $projects = App\Models\Post::latest()->paginate(3);
+                     @endphp
                      <div class="text-center">
+                        @foreach($projects as $project)
                             <div class="clearfix col-md-4 top-off">
-                                   <div class="grid-image"><img src="images/test1.jpg"></div>
+                                   <div class="grid-image"><img width="300" height="300" src="{{asset('storage/uploads/'.$project->passport) }}"></div>
                                    <div class="post-content">
-                                          <h3>Charity for Education</h3>
+                                          <h3>{{ $project->title }}</h3>
                                           <hr>
-                                          <p>Education charities make learning possible for students of all ages, from pre-school to graduate school. They also provide other educational services and opportunities that help make schools more effective and more accessible to students of all backgrounds.</p>
-                                          <a href="projects.html" title="">View Project</a>
-                                   </div>
-                            </div>
-                            <div class="clearfix col-md-4 top-off">
-                                   <div class="grid-image"><img src="images/test2.jpg"></div>
-                                   <div class="post-content">
-                                          <h3>Clean Water Initiative</h3>
-                                          <hr>
-                                          <p>The Clean Water Initiative (CWI) aims to reduce wastage of water, make clean and potable water affordable in areas it is inaccessible, and improve levels of sanitation and hygiene there. Nearly one-third of all countries currently face medium to high levels of water stress.</p>
-                                          <a href="projects.html" title="">View Project</a>
-                                   </div>
-                            </div>
-                            <div class="clearfix col-md-4 top-off">
-                                   <div class="grid-image"><img src="images/test3.jpg"></div>
-                                   <div class="post-content">
-                                          <h3>Covid-19 Intervention</h3>
-                                          <hr>
-                                          <p>The adverse economic effects of COVID-19 are a global phenomenon which in reality is not peculiar to Nigeria. However, the handling of the economy in response to, Nearly one-third of all countries currently face medium to high levels of Covid19 lockdown.</p>
-                                          <a href="projects.html" title="">View Project</a>
-                                   </div>
-                            </div>
-                     </div>
-              </div>
-       </div>
-</section>
+                                          <p class="text-justify">
+                                          @php
+                                            $body =  \Illuminate\Support\Str::limit($project->post,300)
+                                            @endphp
+                                            {!! $body !!}                   </p>
+                                            <a href="{{ route('Project', $project->id) }}" title="">Read More</a>
+                                     </div>
+                              </div>
+                       @endforeach
+
+                       </div>
+                       <br>
+                       <br>
+                       {{ $projects->links() }}
+                </div>
+         </div>
+  </section>
+
 {{--
 <section id="gallery-sec">
        <div class="container">
