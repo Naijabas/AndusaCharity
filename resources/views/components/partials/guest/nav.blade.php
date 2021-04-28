@@ -38,8 +38,8 @@
                                    <li><a href="{{ route('about') }}">About Us</a></li>
                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                    <li><a href="{{ route('about') }}">Resources</a></li>
-                                   <li><a href="{{ route('event.index') }}">News and Events</a></li>
-                            </ul>
+                                   <li><a href="{{ route('event') }}">News and Events</a></li>
+                             </ul>
                      </div>
               </div>
        </div>

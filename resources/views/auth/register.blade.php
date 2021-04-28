@@ -10,7 +10,7 @@
 <body  >
   <br>
 <div class="cont" style="background-color: #e7f5ee;">
-  <div class="form sign-in" method="POST" action="{{ route('login') }}">
+  <div class="form sign-in" method="POST" action="{{ route('register') }}">
     @csrf
     <h2>Welcome back,</h2>
     <label>

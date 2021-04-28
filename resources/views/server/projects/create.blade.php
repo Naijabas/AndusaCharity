@@ -25,7 +25,7 @@
                             <div class="card card-outline card-info">
                                    <div class="card-header">
                                           <h3 class="card-title">
-                                                 <a href="{{route('posts')}}" class="btn btn-success">Projects</a>
+                                                 <a href="{{route('Projects')}}" class="btn btn-success">Projects</a>
                                           </h3>
                                           <!-- tools box -->
                                           <div class="card-tools">
@@ -64,8 +64,8 @@
                                                  </div>
                                                  <div class="mb-3">
                                                         <label for="exampleInputEmail1">Body</label>
-                                                        <textarea name="body" class="textarea @error('body') is-invalid @enderror" placeholder="Enter project body" style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                                        @error('body')
+                                                        <textarea name="post" class="textarea @error('post') is-invalid @enderror" placeholder="Enter project body" style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                                        @error('post')
                                                         <span class="invalid-feedback" role="alert">
                                                                <strong>{{ $message }}</strong>
                                                         </span>

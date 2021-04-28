@@ -12,7 +12,7 @@ class UpcomingEventsRepository
 
     public function __construct(UpcomingEvents $model)
     {
-        $this->model = $model ;
+        $this->model = $model;
     }
 
     public function createUpcomingEvents($request)
@@ -20,7 +20,9 @@ class UpcomingEventsRepository
         $request->validate([
             'title' => 'required',
             'post' => 'required|max:225'
+
         ]);
+      
         if ($request->hasFile('passport')) {
             $filenameWithExt = $request->file('passport')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME );

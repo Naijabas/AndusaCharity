@@ -17,14 +17,17 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {  return view('index'); })->name('index');
 Route::get('/about', function () {  return view('about'); })->name('about');
 Route::get('/contact', function () {  return view('contact'); })->name('contact');
+Route::get('/event', function () {  return view('event'); })->name('event');
 Route::post('/create-contact', [App\Http\Controllers\ContactController::class, 'store'] )->name('create-contact');
 Route::get('/biography/{id}', [App\Http\Controllers\TrusteeController::class, 'biography'])->name('biography');
 Route::get('/blog-post/{id}', [App\Http\Controllers\PostController::class, 'post'])->name('blog-post');
+Route::get('/Projects/{id}', [App\Http\Controllers\ProjectsController::class, 'projects'] )->name('Projects');
+Route::get('/upcomingEvents', [App\Http\Controllers\UpcomingEventsController::class, 'event'] )->name('upcomingEvents');
 
 
 Auth::routes();
 
-
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 /**
  * contact routes
@@ -73,7 +76,6 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
  * EVENT
  */
 
-      Route::resource('event', 'App\Http\Controllers\EventsController');
 
 /**
  * REGISTRATION
@@ -99,8 +101,8 @@ Route::delete('/upcomingEvents-destroy/{id}', [App\Http\Controllers\UpcomingEven
  */
 
 Route::get('/Project', function () {  return view('server.Projects.create'); })->name('Project');
-Route::post('/Projects-create', [App\Http\Controllers\ProjectsController::class, 'store'] )->name('Projects-create');
-Route::get('/Projects', [App\Http\Controllers\ProjectsController::class, 'index'] )->name('Projects');
+Route::get('/Projects-create', [App\Http\Controllers\ProjectsController::class, 'store'] )->name('Projects-create');
+// Route::get('/Projects', [App\Http\Controllers\ProjectsController::class, 'index'] )->name('Projects');
 Route::get('/Projects-show/{id}', [App\Http\Controllers\ProjectsController::class,'show'] )->name('Projects-show');
 Route::patch('/Projects-update/{id}', [App\Http\Controllers\ProjectsController::class, 'update'] )->name('Projects-update');
 Route::delete('/Projects-destroy/{id}', [App\Http\Controllers\ProjectsController::class, 'destroy'] )->name('Projects-destroy');

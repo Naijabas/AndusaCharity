@@ -82,28 +82,7 @@
 
                                                                contactus@andusa.org
                                                         </p>
-                                                          <p><!-- Facebook -->
-                                                        <a class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button"
-                                                            ><i class="fab fa-facebook-f"></i
-                                                        ></a>
-                                                        <!-- Twitter -->
-                                                        <a class="btn btn-primary" style="background-color: #55acee;" href="#!" role="button"
-                                                            ><i class="fab fa-twitter"></i
-                                                        ></a>
-                                                        <!-- Instagram -->
-                                                        <a class="btn btn-primary" style="background-color: #ac2bac;" href="#!" role="button"
-                                                            ><i class="fab fa-instagram"></i
-                                                        ></a>
-                                                        <!-- Linkedin -->
-                                                        <a class="btn btn-primary" style="background-color: #0082ca;" href="#!" role="button"
-                                                        ><i class="fab fa-linkedin-in"></i
-                                                        ></a>
-                                                        <!-- Youtube -->
-                                                        <a class="btn btn-primary" style="background-color: #ed302f;" href="#!" role="button"
-                                                            ><i class="fab fa-youtube"></i
-                                                        ></a>
-
-                                                        </p>
+                                                       
                                                 </div><!-- /.footer-contacts -->
                                         </div><!-- /.footer-section-body -->
                                    </div><!-- /.footer-section -->

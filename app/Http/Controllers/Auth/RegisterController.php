@@ -74,4 +74,8 @@ class RegisterController extends Controller
         $user->roles()->attach($role->id);
         return $user;
     }
+    protected function store(array $data)
+    {
+        return ("here");
+}
 }

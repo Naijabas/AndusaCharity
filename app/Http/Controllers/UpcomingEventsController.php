@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UpcomingEvents;
+
+//use App\Http\Controllers\UpcomingEventsRepository;
 use Illuminate\Http\Request;
+use App\Http\Repositories\UpcomingEventsRepository;
 
 class UpcomingEventsController extends Controller
 {
@@ -14,7 +16,7 @@ class UpcomingEventsController extends Controller
      */
     private $UpcomingEventsRepository;
 
-    public function __construct(UpcomingEventsRepository $UpcomingEventsRepository)
+    public function  __construct(UpcomingEventsRepository $UpcomingEventsRepository)
     {
         $this->UpcomingEventsRepository = $UpcomingEventsRepository;
     }
@@ -23,31 +25,25 @@ class UpcomingEventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function upcomingEvents($id)
+
+     public function event(){
+         
+        return view('event', compact('upcomingEvents'));
+
+    }
+
+    public function index()
     {
-       $upcomingEvents = $this->UpcomingEventsRepository->showByID($id);
-        return view('upcomingEvent', compact('upcomingEvent'));
+    $upcomingEvents = $this->UpcomingEventsRepository->allUpcomingEvents();
+    return view('server.upcomingEvent.index', compact('upcomingEvent'));
+
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-     {
-        $this->UpcomingEventsRepository->createUpcomingEvents($request);
-        return redirect()->back()->with('success', 'Upcoming Events created successfully');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\UpcomingEvents  $upcomingEvents
-     * @return \Illuminate\Http\Response
-*/
+    // public function upcomingEvents($id)
+    // {
+    //    $upcomingEvents = $this->UpcomingEventsRepository->showByID($id);
+    //     return view('upcomingEvent', compact('upcomingEvent'));
+    // }
 
 
     public function show($id)
@@ -56,17 +52,19 @@ class UpcomingEventsController extends Controller
         return view('server.upcomingEvent.show', compact('upcomingEvents'));
       }
 
-
     /**
-     * Show the form for editing the specified resource.
+     * Store a newly created resource in storage.
      *
-     * @param  \App\Models\UpcomingEvents  $upcomingEvents
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function edit(UpcomingEvents $upcomingEvents)
-    {
-        //
+
+    public function store(Request $request)
+     {
+        $this->UpcomingEventsRepository->createUpcomingEvents($request);
+        return redirect()->back()->with('success', 'Upcoming Events created successfully');
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -75,11 +73,11 @@ class UpcomingEventsController extends Controller
      * @param  \App\Models\UpcomingEvents  $upcomingEvents
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UpcomingEvents $upcomingEvents)
+    public function update(Request $request, $id)
     {
         $update =  $this->UpcomingEventsRepository->updateUpcomingEvents($request, $id);
         if($update) {
-         return  redirect()->route('upcomingEvent-show', $id)->with('success', 'Post updated successfully');
+         return  redirect()->route('upcomingEvent-show', $id)->with('success', ' upcoming Events updated successfully');
         }
     }
 
@@ -89,9 +87,9 @@ class UpcomingEventsController extends Controller
      * @param  \App\Models\UpcomingEvents  $upcomingEvents
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UpcomingEvents $upcomingEvents)
+    public function destroydestroy($id)
     {
         $this->UpcomingEventsRepository->deleteUpcomingEvents($id);
-        return redirect()->back()->with('success', 'upcomingEvents deleted successfully');
+        return redirect()->back()->with('success', 'upcoming Events deleted successfully');
     }
 }

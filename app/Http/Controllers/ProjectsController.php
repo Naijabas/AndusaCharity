@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Repositories\Projects;
 
 use Illuminate\Http\Request;
+use App\Models\Project;
 use App\Http\Repositories\ProjectsRepository;
 
 class ProjectsController extends Controller
@@ -17,20 +18,23 @@ class ProjectsController extends Controller
 
     public function __construct(ProjectsRepository $ProjectsRepository)
     {
-        $this->ProjectRepository= $ProjectsRepository;
+        $this->ProjectsRepository = $ProjectsRepository;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function index2()
     {
-        $projects = $this->ProjectsRepository->showByID($id);
-        return view('Project', compact('Project'));
+
+    return view('projects', compact('Projects'));
+
     }
 
+    public function index()
+    {
+    $projects = $this->ProjectsRepository->allProjects();
+    return view('server.projects.index', compact('Projects'));
+
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -51,18 +55,19 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        $projects = $this->ProjectsRepository->showByID($id);
-        return view('server.Projects.show', compact('Projects'));
+        $project = $this->ProjectsRepository->showByID($id);
+        return view('server.Projects.show', compact('project'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Projects  $projects
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Projects $projects)
+    public function projects($id)
+    {
+
+        $project = $this->ProjectsRepository->showByID($id);
+        return view('projects', compact('project'));
+    }
+
+
+    public function update(Request $request,$id)
     {
         $update =  $this->ProjectsRepository->updateProjects($request, $id);
         if($update) {
@@ -76,7 +81,7 @@ class ProjectsController extends Controller
      * @param  \App\Models\Projects  $projects
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Projects $projects)
+    public function destroy($id)
     {
         $this->ProjectsRepository->deleteProjects($id);
         return redirect()->back()->with('success', 'Project deleted successfully');

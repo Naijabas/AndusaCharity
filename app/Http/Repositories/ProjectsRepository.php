@@ -6,7 +6,7 @@ use App\Models\Projects;
 use Intervention\Image\ImageManager;
 use Image;
 
-class ProjectRepository
+class ProjectsRepository
 {
     public $model;
 
@@ -21,6 +21,7 @@ class ProjectRepository
             'title' => 'required',
             'post' => 'required|max:225'
         ]);
+        dd($request);
         if ($request->hasFile('passport')) {
             $filenameWithExt = $request->file('passport')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME );

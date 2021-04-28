@@ -34,7 +34,7 @@
                      <div class="item slide5">
                             <h2 data-animation="animated bounceInDown"><span>UPCOMING ANDUSA EVENTS</span></h2>
                             <h3 data-animation="animated bounceInDown">JOIN US FOR OUR NEXT EVENT.</h3>
-                            <h4 data-animation="animated bounceInUp"><a href="{{ route('about') }}">LEARN MORE</a></h4>
+                            <h4 data-animation="animated bounceInUp"><a href="{{ route('upcomingEvents') }}">LEARN MORE</a></h4>
                      </div>
                      <!-- End Item 4 -->
                      <!-- Item 5 -->
@@ -184,7 +184,7 @@
                      <hr>
                      <h5>ANDUSA ongoing and completed projects.</h5>
                      @php
-                     $projects = App\Models\Post::latest()->paginate(3);
+                     $projects = App\Models\Projects::latest()->paginate(3);
                      @endphp
                      <div class="text-center">
                         @foreach($projects as $project)
@@ -195,10 +195,10 @@
                                           <hr>
                                           <p class="text-justify">
                                           @php
-                                            $body =  \Illuminate\Support\Str::limit($project->post,300)
+                                            $post =  \Illuminate\Support\Str::limit($project->post,300)
                                             @endphp
-                                            {!! $body !!}                   </p>
-                                            <a href="{{ route('Project', $project->id) }}" title="">Read More</a>
+                                            {!! $post !!}                   </p>
+                                            <a href="{{ route('Projects', $project->id) }}" title="">Read More</a>
                                      </div>
                               </div>
                        @endforeach
