@@ -26,14 +26,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::if('supperadmin', function ()  {
+        Blade::if('SuperAdmin', function ()  {
             $userRoles = auth()->user()->roles->pluck('name');
-                if($userRoles[0] == 'Supperadmin'){
+                if($userRoles[0] == 'SuperAdmin'){
                     return true;
                 }
         });
-        
-        Blade::if('admin', function ()  {
+
+        Blade::if('Admin', function ()  {
             $userRoles = auth()->user()->roles->pluck('name');
                 if($userRoles[0] == 'Admin'){
                     return true;

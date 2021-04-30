@@ -2,89 +2,53 @@
 @section('content')
 <br>
 <br>
-<section id="" class="container" style="margin-top: 100px; margin-left:10px;">
-    <div class="row no-gutters">
-        <div class="col-sm-6 col-md-8">
-            <h3>
-                Upcoming ANDUSA 2021 Annual Summit & Annual General Meeting
-            </h3>
-            <img src="{{ asset('images/test.webp') }}" alt="" srcset="">
-            <h3>
-                NIDO Americas USA 2020 Annual Summit & Annual General Meeting
-            </h3>
-            <p>we will update you here! we will update
-                you here! we will update you here!!! we will update you here!
-                we will update you  will update you here! we will update
-                you here! we will update you here!!! we will update you here!
-                we will update you here!!!!!</p>
-                <p><span><strong> updated: 2021/04/20</strong></span></p>
+<br>
+<br>
 
-        </div>
-<p><H3>pAST EVENTS</H3></p>
-     {{--    <div class="col-6 col-md-4">
-            <h3>
-                Past Events
-            </h3>
-            <h6>
-                View pictures from some of our past ADUSA USA Events
-            </h6>
-            <img src="{{ asset('images/test1.jpg') }}" width="500px" alt="">
-        </div>
-        <p> here i another, here i anotherhere i another here i another</p>
-
-      <div class="col-6 col-md-4">
-        <h3>
-            Past Events
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <section class="event__section">
+        @php
+        $upcomingevents = App\Models\Upcomingevents::latest()->paginate(2);
+        @endphp
+      <div class="container">
+          @foreach($upcomingevents as $upcomingevent)
+        <h3 class="event__title">
+            {{ $upcomingevent->title }}
         </h3>
-        <h6>
-            View pictures from some of our past ADUSA USA Events
-        </h6>
-        <img src="{{ asset('images/test1.jpg') }}" width="500px" alt="">
-    </div>
-    <p> here i another</p> --}}
-    {{-- <div class="col-6 col-md-4">
-        <h3>
-            Past Events
-        </h3>
-        <h6>
-            View pictures from some of our past ADUSA USA Events
-        </h6>
-        <img src="{{ asset('images/test1.jpg') }}" width="500px" alt="">
-        <p> here i another</p>
-    </div> --}}
 
-    <div class="col-6 col-md-4">
-        <a class="blog-img mr-4" style="background-image: #"><img src="{{ asset('images/test1.jpg') }}" width="500px" alt=""></a>
-        <div class="text">
-          <h3 class="heading"><a href="#">#</a></h3>
-          <div class="meta">
-            <div><a href="#"><span class="icon-calendar"></span> 12:00PM</a></div>
-            <div><a href="#"><span class="icon-person"></span>EYO NI</a></div>
-            <div><a href="#"><span class="icon-chat"></span>VIEWS</a></div>
-       </div>
-       <div class="col-6 col-md-4">
-        <a class="blog-img mr-4" style="background-image: #"><img src="{{ asset('images/test1.jpg') }}" width="500px" alt=""></a>
-        <div class="text">
-          <h3 class="heading"><a href="#">#</a></h3>
-          <div class="meta">
-            <div><a href="#"><span class="icon-calendar"></span> 12:00PM</a></div>
-            <div><a href="#"><span class="icon-person"></span>EYO NI</a></div>
-            <div><a href="#"><span class="icon-chat"></span>VIEWS</a></div>
-       </div>
-       <div class="col-6 col-md-4">
-        <a class="blog-img mr-4" style="background-image: #"><img src="{{ asset('images/test1.jpg') }}" width="500px" alt=""></a>
-        <div class="text">
-          <h3 class="heading"><a href="#">#</a></h3>
-          <div class="meta">
-            <div><a href="#"><span class="icon-calendar"></span> 12:00PM</a></div>
-            <div><a href="#"><span class="icon-person"></span>EYO NI</a></div>
-            <div><a href="#"><span class="icon-chat"></span>VIEWS</a></div>
-       </div>
-
-    </div>
-  </div>
-
-</section>
+        <div class="event__wrapper">
+          <!-- main img -->
+          <div class="event__main">
+            <img src="{{asset('storage/uploads/'.$upcomingevent->passport) }}" alt="main image" />
+            <h3 class="event__title">
+                {{ $upcomingevent->post }}
+            </h3>
+          </div>
+          @endforeach
+          <div class="event__side">
+            <!-- side imgs -->
+            <div class="book">
+              <img src="images/test1.JPG" alt="submit side" />
+              <p>views</p>
+              <p>Date created:</p>
+            </div>
+            <div class="book">
+              <img src="images/test1.JPG" alt="submit side" />
+              <p>views</p>
+              <p>Date created:</p>
+            </div>
+            <div class="book">
+              <img src="images/test1.JPG" alt="submit side" />
+              <p>views</p>
+              <p>Date created:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 
 @endsection
 

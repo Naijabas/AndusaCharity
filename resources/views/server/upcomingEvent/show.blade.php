@@ -30,7 +30,7 @@
                             <div class="col-md-12">
                                    <div class="card card-primary card-outline">
                                           <div class="card-header">
-                                                 <h3 class="card-title"><a href="{{route('upcomingEvents')}}" class="btn btn-success">upcomingEvent Posts</a></h3>
+                                                 <h3 class="card-title"><a href="{{route('upcomingevents')}}" class="btn btn-success">upcomingEvent Posts</a></h3>
                                                  <div class="card-tools">
                                                         <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
                                                         <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
@@ -39,16 +39,16 @@
                                           <!-- /.card-header -->
                                           <div class="p-0 card-body">
                                                  <div class="mailbox-read-info">
-                                                        <h5>upcomingEvent Title : {{ $upcomingEvent->title}}</h5>
+                                                        <h5>upcoming Event Title : {{ $upcomingevent->title}}</h5>
                                                         <h6>From: Admin
-                                                    <span class="float-right mailbox-read-time">{{ $upcomingEvent->created_at->diffForHumans() }}</span></h6>
+                                                    <span class="float-right mailbox-read-time">{{ $upcomingevent->created_at->diffForHumans() }}</span></h6>
                                                  </div>
-                                                 <h5>Picture:</h5> <img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$upcomingEvent->passport) }}" alt="" >
+                                                 <h5>Picture:</h5> <img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$upcomingevent->passport) }}" alt="" >
                                                  <td></td>
                                                  <tr>
                                                  <div class="p-4 mailbox-read-post">
                                                         <p class="text-justify">
-                                                               {!! $upcomingEvent->body !!}
+                                                               {!! $upcomingevent->post !!}
                                                         </p>
                                                  </div>
                                                  <!-- /.mailbox-read-post -->
@@ -59,7 +59,7 @@
                                                  <div class="float-right">
                                                         <a href="" type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModalLong"><i class="fas fa-edit"></i> Edit upcomingEvent</a>
                                                  </div>
-                                                 <form action="{{ route('upcomingEvent-destroy', $upcomingEvent->id) }}" method="POST">
+                                                 <form action="{{ route('upcomingEvent-destroy', $upcomingevent->id) }}" method="POST">
                                                         @csrf
                                                         {{ method_field('DELETE') }}
                                                         <a title="Delete upcomingEvent" onclick="return confirm('Are you sure you want to delete this...?')" href="#" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</a>

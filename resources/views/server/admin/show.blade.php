@@ -37,7 +37,7 @@
 
                                                  <h3 class="text-center profile-username">{{ $admin->name }}</h3>
 
-                                                 <p class="text-center text-muted">{{ auth()->user()->roles[0]['name'] }}</p>
+                                                 <p class="text-center text-muted">{{ $admin->roles[0]['name'] }}</p>
 
                                                  <ul class="mb-3 list-group list-group-unbordered">
                                                         <li class="list-group-item">
@@ -48,7 +48,7 @@
                                                         </li>
                                                         <li class="list-group-item">
                                                                <b>Date</b> <a class="float-right">{{ $admin->created_at->diffForHumans() }}</a>
-                                                        </li> 
+                                                        </li>
                                                  </ul>
 
                                                  <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>

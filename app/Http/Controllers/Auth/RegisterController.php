@@ -42,6 +42,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -70,12 +71,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $role = Role::where('name', 'Admin')->first();
+        $role = Role::where('name', 'SuperAdmin')->first();
         $user->roles()->attach($role->id);
         return $user;
     }
-    protected function store(array $data)
-    {
-        return ("here");
-}
+
+//   public function  adminreg(){
+//             return view ('adminreg');
+
+//    }
+
 }

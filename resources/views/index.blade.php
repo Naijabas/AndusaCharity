@@ -195,10 +195,11 @@
                                           <hr>
                                           <p class="text-justify">
                                           @php
-                                            $post =  \Illuminate\Support\Str::limit($project->post,300)
+                                            $post = \Illuminate\Support\Str::limit($project->post,300)
                                             @endphp
-                                            {!! $post !!}                   </p>
-                                            <a href="{{ route('Projects', $project->id) }}" title="">Read More</a>
+                                            {!! $post !!}
+                                             </p>
+                                            <a href="{{ route('project', $project->id) }}" title="">Read More</a>
                                      </div>
                               </div>
                        @endforeach
@@ -211,80 +212,6 @@
          </div>
   </section>
 
-{{--
-<section id="gallery-sec">
-       <div class="container">
-              <div class="text-center row">
-                     <h1>OUR GALLERY</h1>
-                     <hr>
-                     <h5>On this page, you will also find curated pictures from past ANDUSA events and programs. For the sake of ease, all pictures have been categorized based on Event names and dates. To view an album, simply click on any of the Album images below..</h5>
-                     <ul class="clearfix">
-
-                            <li>
-                                   <a href="images/gallery1.jpg" class="swipebox" title="My Caption">
-                                          <div class="image"><img src="images/gallery1.jpg">
-                                                 <div class="overlay"><i class="fa fa-search-plus"></i></div>
-                                          </div>
-                                   </a>
-                            </li>
-                            <li>
-                                   <a href="images/gallery2.jpg" class="swipebox" title="My Caption">
-                                          <div class="image"><img src="images/gallery2.jpg">
-                                                 <div class="overlay"><i class="fa fa-search-plus"></i></div>
-                                          </div>
-                                   </a>
-                            </li>
-
-                            <li>
-                                   <a href="images/gallery3.jpg" class="swipebox" title="My Caption">
-                                          <div class="image"><img src="images/gallery3.jpg">
-                                                 <div class="overlay"><i class="fa fa-search-plus"></i></div>
-                                          </div>
-                                   </a>
-                            </li>
-
-                            <li>
-                                   <a href="images/gallery4.jpg" class="swipebox" title="My Caption">
-                                          <div class="image"><img src="images/gallery4.jpg">
-                                                 <div class="overlay"><i class="fa fa-search-plus"></i></div>
-                                          </div>
-                                   </a>
-                            </li>
-                            <li>
-                                   <a href="images/gallery5.jpg" class="swipebox" title="My Caption">
-                                          <div class="image"><img src="images/gallery5.jpg">
-                                                 <div class="overlay"><i class="fa fa-search-plus"></i></div>
-                                          </div>
-                                   </a>
-                            </li>
-                            <li>
-                                   <a href="images/gallery6.jpg" class="swipebox" title="My Caption">
-                                          <div class="image"><img src="images/gallery6.jpg">
-                                                 <div class="overlay"><i class="fa fa-search-plus"></i></div>
-                                          </div>
-                                   </a>
-                            </li>
-                            <li>
-                                   <a href="images/gallery7.jpg" class="swipebox" title="My Caption">
-                                          <div class="image"><img src="images/gallery7.jpg">
-                                                 <div class="overlay"><i class="fa fa-search-plus"></i></div>
-                                          </div>
-                                   </a>
-                            </li>
-                            <li>
-                                   <a href="images/gallery8.jpg" class="swipebox" title="My Caption">
-                                          <div class="image"><img src="images/gallery8.jpg">
-                                                 <div class="overlay"><i class="fa fa-search-plus"></i></div>
-                                          </div>
-                                   </a>
-                            </li>
-                     </ul>
-                     <div class="text-center">
-                            <a href="gallery.html" class="btn1">View More</a>
-                     </div>
-              </div>
-       </div>
-</section> --}}
 
 <section id="projects-sec">
        <div class="container">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Repositories;
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 
 class PostRepository
@@ -20,8 +21,10 @@ class PostRepository
             'title' => 'required',
             'body' => 'required',
             'banner_image' => 'required|image'
-        ]);
-        if ($request->hasFile('banner_image')) {
+
+
+            ]);
+            if ($request->hasFile('banner_image')) {
             $filenameWithExt = $request->file('banner_image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME );
             $extension = $request->file('banner_image')->getClientOriginalExtension();
@@ -31,8 +34,11 @@ class PostRepository
         return  $this->model->create([
             'title' => $request->title,
             'body' =>  $request->body,
-            'banner_image' =>  $fileNameToStore
-        ]);
+            'banner_image' =>  $fileNameToStore,
+            'user_id' => auth()->user()->id
+            // 'user_id' => $request->input(auth()->user()->id),
+
+            ]);
     }
 
     public function allPost()
@@ -52,7 +58,7 @@ class PostRepository
             'banner_image' => 'required',
             'body' => 'required',
         ]);
-        
+
         $this->model->findOrFail($id)->update([
             'title' => $request->title,
             'banner_image' => $request->banner_image,

@@ -8,8 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Projects extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
-        'title','passport','post'];
+        'title','passport','post', 'user_id'
+
+    ];
+
+
+    // public function projects(){
+    //     return $this->belongsToMany('App\Project');
+    // }
+
 
 }

@@ -25,14 +25,14 @@ class ProjectsController extends Controller
     public function index2()
     {
 
-    return view('projects', compact('Projects'));
+    return view('projects', compact('projects'));
 
     }
 
     public function index()
     {
-    $projects = $this->ProjectsRepository->allProjects();
-    return view('server.projects.index', compact('Projects'));
+    $projects = $this->ProjectsRepository->allProject();
+    return view('server.projects.index', compact('projects'));
 
     }
     /**
@@ -43,7 +43,7 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->ProjectsRepository->createProjects($request);
+        $this->ProjectsRepository->createProject($request);
         return redirect()->back()->with('success', 'Projects created successfully');
     }
 
@@ -56,7 +56,7 @@ class ProjectsController extends Controller
     public function show($id)
     {
         $project = $this->ProjectsRepository->showByID($id);
-        return view('server.Projects.show', compact('project'));
+        return view('server.projects.show', compact('project'));
     }
 
     public function projects($id)
@@ -69,9 +69,9 @@ class ProjectsController extends Controller
 
     public function update(Request $request,$id)
     {
-        $update =  $this->ProjectsRepository->updateProjects($request, $id);
+        $update =  $this->ProjectsRepository->updateProject($request, $id);
         if($update) {
-         return  redirect()->route('Projects-show', $id)->with('success', 'Project updated successfully');
+         return  redirect()->route('project-show', $id)->with('success', 'Project updated successfully');
         }
     }
 
@@ -83,7 +83,7 @@ class ProjectsController extends Controller
      */
     public function destroy($id)
     {
-        $this->ProjectsRepository->deleteProjects($id);
+        $this->ProjectsRepository->deleteProject($id);
         return redirect()->back()->with('success', 'Project deleted successfully');
     }
 }

@@ -37,9 +37,11 @@
                                           <div class="icon">
                                                  <i class="fas fa-user-secret"></i>
                                           </div>
+
                                           <a href="{{ route('admins') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                   </div>
-                            </div>
+
+                                        </div>
+                                </div>
                             <!-- ./col -->
                             <div class="col-lg-3 col-6">
                                    <!-- small box -->
@@ -52,7 +54,7 @@
                                           <div class="icon">
                                                  <i class="fas fa-envelope "></i>
                                           </div>
-                                          <a href="{{ route('contacts') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                          <a href="{{ route('contacts')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                    </div>
                             </div>
                             <!-- ./col -->

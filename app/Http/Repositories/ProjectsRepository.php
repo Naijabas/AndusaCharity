@@ -15,13 +15,13 @@ class ProjectsRepository
         $this->model = $model ;
     }
 
-    public function createProjects($request)
+    public function createProject($request)
     {
         $request->validate([
             'title' => 'required',
             'post' => 'required|max:225'
         ]);
-        dd($request);
+       // dd($request);
         if ($request->hasFile('passport')) {
             $filenameWithExt = $request->file('passport')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME );
@@ -32,11 +32,12 @@ class ProjectsRepository
         return  $this->model->create([
             'title' => $request->title,
             'passport' => $fileNameToStore,
-            'post' => $request->post
+            'post' => $request->post,
+            'user_id' => auth()->user()->id
         ]);
     }
 
-    public function allProjects()
+    public function allProject()
     {
         return $this->model->paginate(5);
     }
@@ -46,7 +47,7 @@ class ProjectsRepository
         return $this->model->findOrFail($id);
     }
 
-    public function updateProjects($request, $id)
+    public function updateProject($request, $id)
     {
         $request->validate([
             'title' => 'required',
@@ -70,7 +71,7 @@ class ProjectsRepository
         return $this->model;
     }
 
-    public function deleteProjects($id)
+    public function deleteProject($id)
     {
         $this->model->findOrFail($id)->delete();
         return $this->model;

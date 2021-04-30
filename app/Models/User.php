@@ -46,10 +46,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Add a mutator to ensure hashed passwords
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
     public function roles() {
 
         return $this->belongsToMany(Role::class,);
 
+    }
+
+    public function posts(){
+        return $this->belongsToMany('App\Post');
+    }
+
+    public function projects(){
+        return $this->belongsToMany('App\Project');
     }
 
 }

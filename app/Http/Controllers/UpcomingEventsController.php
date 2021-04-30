@@ -27,29 +27,29 @@ class UpcomingEventsController extends Controller
      */
 
      public function event(){
-         
-        return view('event', compact('upcomingEvents'));
+
+        return view('event', compact('upcomingevents'));
 
     }
 
     public function index()
     {
-    $upcomingEvents = $this->UpcomingEventsRepository->allUpcomingEvents();
-    return view('server.upcomingEvent.index', compact('upcomingEvent'));
+    $upcomingevents = $this->UpcomingEventsRepository->allUpcomingevents();
+    return view('server.upcomingevent.index', compact('upcomingevent'));
 
     }
 
-    // public function upcomingEvents($id)
+    // public function upcomingevents($id)
     // {
-    //    $upcomingEvents = $this->UpcomingEventsRepository->showByID($id);
-    //     return view('upcomingEvent', compact('upcomingEvent'));
+    //    $upcomingevents = $this->UpcomingEventsRepository->showByID($id);
+    //     return view('upcomingevent', compact('upcomingevent'));
     // }
 
 
     public function show($id)
       {
-        $upcomingEvents = $this->UpcomingEventsRepository->showByID($id);
-        return view('server.upcomingEvent.show', compact('upcomingEvents'));
+        $upcomingevents = $this->UpcomingEventsRepository->showByID($id);
+        return view('server.upcomingevent.show', compact('upcomingevents'));
       }
 
     /**
@@ -61,7 +61,7 @@ class UpcomingEventsController extends Controller
 
     public function store(Request $request)
      {
-        $this->UpcomingEventsRepository->createUpcomingEvents($request);
+        $this->UpcomingEventsRepository->createUpcomingevents($request);
         return redirect()->back()->with('success', 'Upcoming Events created successfully');
     }
 
@@ -75,9 +75,9 @@ class UpcomingEventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update =  $this->UpcomingEventsRepository->updateUpcomingEvents($request, $id);
+        $update =  $this->UpcomingEventsRepository->updateUpcomingevents($request, $id);
         if($update) {
-         return  redirect()->route('upcomingEvent-show', $id)->with('success', ' upcoming Events updated successfully');
+         return  redirect()->route('upcomingevents-show', $id)->with('success', ' upcoming Events updated successfully');
         }
     }
 
@@ -87,9 +87,9 @@ class UpcomingEventsController extends Controller
      * @param  \App\Models\UpcomingEvents  $upcomingEvents
      * @return \Illuminate\Http\Response
      */
-    public function destroydestroy($id)
+    public function destroy($id)
     {
-        $this->UpcomingEventsRepository->deleteUpcomingEvents($id);
+        $this->UpcomingEventsRepository->deleteUpcomingevents($id);
         return redirect()->back()->with('success', 'upcoming Events deleted successfully');
     }
 }

@@ -84,7 +84,7 @@
                                                         <label for="password">Select Administrator Role</label>
                                                         <select name="role" class="form-control @error('role') is-invalid @enderror" style="width: 100%;">
                                                                <option value="">Role</option>
-                                                               <option value="Superadmin">Super Administrator</option>
+                                                               <option value="SuperAdmin">Super Administrator</option>
                                                                <option value="Admin">Administrator</option>
                                                         </select>
                                                         @error('role')

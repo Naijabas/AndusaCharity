@@ -10,7 +10,7 @@
                      </div>
                      <div class="mb-2 row">
                             <div class="col-sm-6">
-                                   <h1>Project Details</h1>
+                                   <h1>project Details</h1>
                             </div>
                             <div class="col-sm-6">
                                    <ol class="breadcrumb float-sm-right">
@@ -30,7 +30,7 @@
                             <div class="col-md-12">
                                    <div class="card card-primary card-outline">
                                           <div class="card-header">
-                                                 <h3 class="card-title"><a href="{{route('Projects')}}" class="btn btn-success">Projects</a></h3>
+                                                 <h3 class="card-title"><a href="{{route('projects')}}" class="btn btn-success">projects</a></h3>
                                                  <div class="card-tools">
                                                         <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
                                                         <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
@@ -39,16 +39,16 @@
                                           <!-- /.card-header -->
                                           <div class="p-0 card-body">
                                                  <div class="mailbox-read-info">
-                                                        <h5>Project Title : {{ $Project->title}}</h5>
+                                                        <h5>project Title : {{ $project->title}}</h5>
                                                         <h6>From: Admin
-                                                    <span class="float-right mailbox-read-time">{{ $Project->created_at->diffForHumans() }}</span></h6>
+                                                    <span class="float-right mailbox-read-time">{{ $project->created_at->diffForHumans() }}</span></h6>
                                                  </div>
-                                                 <h5>Picture:</h5> <img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$Project->passport) }}" alt="" >
+                                                 <h5>Picture:</h5> <img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$project->passport) }}" alt="" >
                                                  <td></td>
                                                  <tr>
                                                  <div class="p-4 mailbox-read-post">
                                                         <p class="text-justify">
-                                                               {!! $Project->body !!}
+                                                               {!! $project->body !!}
                                                         </p>
                                                  </div>
                                                  <!-- /.mailbox-read-post -->
@@ -57,12 +57,12 @@
                                           <!-- /.card-footer -->
                                           <div class="card-footer">
                                                  <div class="float-right">
-                                                        <a href="" type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModalLong"><i class="fas fa-edit"></i> Edit Project</a>
+                                                        <a href="" type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModalLong"><i class="fas fa-edit"></i> Edit project</a>
                                                  </div>
-                                                 <form action="{{ route('Project-destroy', $Project->id) }}" method="POST">
+                                                 <form action="{{ route('project-destroy', $project->id) }}" method="POST">
                                                         @csrf
                                                         {{ method_field('DELETE') }}
-                                                        <a title="Delete Project" onclick="return confirm('Are you sure you want to delete this...?')" href="#" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</a>
+                                                        <a title="Delete project" onclick="return confirm('Are you sure you want to delete this...?')" href="#" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</a>
                                                  </form>
                                           </div>
                                           <!-- /.card-footer -->
@@ -83,19 +83,19 @@
               <div class="modal-dialog" role="document">
                      <div class="modal-content">
                             <div class="modal-header">
-                                   <h5 class="modal-title" id="exampleModalLongTitle">Edit Project</h5>
+                                   <h5 class="modal-title" id="exampleModalLongTitle">Edit project</h5>
                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                    </button>
                             </div>
                             <div class="modal-body">
                                    <x-alerts.success />
-                                   <form method="post" action="{{ route('Project-update', $Project->id) }}">
+                                   <form method="post" action="{{ route('project-update', $project->id) }}">
                                           @csrf
                                           {{ method_field('PATCH') }}
                                           <div class="mb-3">
                                                  <label for="title">Title</label>
-                                                 <input type="text" name="title" value="{{ $Project->title }}" class="form-control @error('title') is-invalid @enderror" placeholder="Enter Project title">
+                                                 <input type="text" name="title" value="{{ $project->title }}" class="form-control @error('title') is-invalid @enderror" placeholder="Enter project title">
                                                  @error('title')
                                                  <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -117,7 +117,7 @@
 
                                           <div class="mb-3">
                                                  <label for="title">Body</label>
-                                                 <textarea name="body" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $Project->body }}</textarea>
+                                                 <textarea name="body" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $project->body }}</textarea>
                                                  @error('body')
                                                  <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

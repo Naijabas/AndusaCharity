@@ -27,7 +27,7 @@
                             <div class="col-12">
                                    <div class="card">
                                           <div class="card-header">
-                                                 <h3 class="card-title"><a href="{{route('upcomingEvent')}}" class="btn btn-success">Create</a></h3>
+                                                 <h3 class="card-title"><a href="{{route('upcomingevent')}}" class="btn btn-success">Create</a></h3>
                                           </div>
                                           <!-- /.card-header -->
                                           <div class="container">
@@ -48,18 +48,18 @@
                                                                @php
                                                                $i = 1;
                                                                @endphp
-                                                               @foreach($upcomingEvents as $upcomingEvent)
+                                                               @foreach($upcomingevents as $upcomingevent)
                                                                <tr>
                                                                       <td>{{ $i++ }}</td>
-                                                                      <td><img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$upcomingEvent->passport) }}" alt="" width="20"></td>
-                                                                      <td>{{ $upcomingEvent->title }}</td>
-                                                                      <td>{{ $upcomingEvent->created_at->diffForHumans() }}</td>
+                                                                      <td><img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$upcomingevent->passport) }}" alt="" width="20"></td>
+                                                                      <td>{{ $upcomingevent->title }}</td>
+                                                                      <td>{{ $upcomingevent->created_at->diffForHumans() }}</td>
                                                                       <td>
                                                                              <div class="btn-group">
-                                                                                    <form action="{{ route('upcomingEvent-destroy', $upcomingEvent->id) }}" method="POST">
+                                                                                    <form action="{{ route('upcomingevent-destroy', $upcomingevent->id) }}" method="POST">
                                                                                            @csrf
                                                                                            {{ method_field('DELETE') }}
-                                                                                           <a class="btn btn-primary" title="Respond to upcomingEvent" href="{{ route('upcomingEvent-show', $upcomingEvent->id) }}"><i class="fa fa-eye"></i></a>
+                                                                                           <a class="btn btn-primary" title="Respond to upcoming Event" href="{{ route('upcomingevent-show', $upcomingevent->id) }}"><i class="fa fa-eye"></i></a>
                                                                                            <button title="Delete upcomingEvent" onclick="return confirm('Are you sure you want to delete this...?')" class="btn btn-danger" href="#"><i class="fa fa-trash"></i></button>
                                                                                     </form>
                                                                              </div>
@@ -77,7 +77,7 @@
                                                                </tr>
                                                         </tfoot>
                                                  </table>
-                                                 {{ $upcomingEvents->links() }}
+                                                 {{ $upcomingevents->links() }}
                                           </div>
                                           <!-- /.card-body -->
                                    </div>

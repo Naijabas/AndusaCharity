@@ -7,12 +7,12 @@
               <div class="container-fluid">
                      <div class="mb-2 row">
                             <div class="col-sm-6">
-                                   <h1>Create Project</h1>
+                                   <h1>Create project</h1>
                             </div>
                             <div class="col-sm-6">
                                    <ol class="breadcrumb float-sm-right">
                                           <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                                          <li class="breadcrumb-item active">Project</li>
+                                          <li class="breadcrumb-item active">project</li>
                                    </ol>
                             </div>
                      </div>
@@ -25,7 +25,7 @@
                             <div class="card card-outline card-info">
                                    <div class="card-header">
                                           <h3 class="card-title">
-                                                 <a href="{{route('Projects')}}" class="btn btn-success">Projects</a>
+                                                 <a href="{{route('projects')}}" class="btn btn-success">projects</a>
                                           </h3>
                                           <!-- tools box -->
                                           <div class="card-tools">

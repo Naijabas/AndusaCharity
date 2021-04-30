@@ -15,10 +15,11 @@ class CreateUpcomingeventsTable extends Migration
     {
         Schema::create('upcomingevents', function (Blueprint $table) {
             $table->id();
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->longtext('post');
             $table->binary('passport');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

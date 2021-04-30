@@ -15,14 +15,14 @@ class UpcomingEventsRepository
         $this->model = $model;
     }
 
-    public function createUpcomingEvents($request)
+    public function createUpcomingevents($request)
     {
         $request->validate([
             'title' => 'required',
             'post' => 'required|max:225'
 
         ]);
-      
+
         if ($request->hasFile('passport')) {
             $filenameWithExt = $request->file('passport')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME );
@@ -37,7 +37,7 @@ class UpcomingEventsRepository
         ]);
     }
 
-    public function allUpcomingEvents()
+    public function allUpcomingevents()
     {
         return $this->model->paginate(2);
     }
@@ -47,7 +47,7 @@ class UpcomingEventsRepository
         return $this->model->findOrFail($id);
     }
 
-    public function updateUpcomingEvents($request, $id)
+    public function updateUpcomingevents($request, $id)
     {
         $request->validate([
             'title' => 'required',
@@ -71,7 +71,7 @@ class UpcomingEventsRepository
         return $this->model;
     }
 
-    public function deleteUpcomingEvents($id)
+    public function deleteUpcomingevents($id)
     {
         $this->model->findOrFail($id)->delete();
         return $this->model;

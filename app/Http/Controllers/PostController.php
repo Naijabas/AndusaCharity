@@ -31,6 +31,7 @@ class PostController extends Controller
     }
     public function store(Request $request)
     {
+        
         $this->postRepository->createPost($request);
         return redirect()->back()->with('success', 'Post created successfully');
     }
