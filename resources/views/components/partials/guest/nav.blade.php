@@ -29,7 +29,7 @@
                             <button type="button" class="navbar-toggle" data-toggle="collapse"   data-target="#navbar-menu">
                                    <i class="fa fa-bars"></i>
                             </button>
-                            <a class="navbar-brand logo" href="{{ route('index') }}"><div><strong ><span></span></strong></div>
+                            <a class="navbar-brand logo" href="{{ route('index') }}">
                              <img src="{{ asset('logo.JPG') }}" class="img-responsive" width="100px"/></a>
                       </div>
                              <div class="collapse navbar-collapse" id="navbar-menu">

@@ -40,7 +40,7 @@
                                           <div class="p-0 card-body">
                                                  <div class="mailbox-read-info">
                                                         <h5>Blog Title : {{ $post->title}}</h5>
-                                                        <h6>From: Admin
+                                                        <h6>by: {{$post->user->name}}
                                                     <span class="float-right mailbox-read-time">{{ $post->created_at->diffForHumans() }}</span></h6>
                                                  </div>
                                                  <h5>Picture:</h5> <img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$post->banner_image) }}" alt="" >

@@ -56,11 +56,11 @@
                                                                       <td>{{ $upcomingevent->created_at->diffForHumans() }}</td>
                                                                       <td>
                                                                              <div class="btn-group">
-                                                                                    <form action="{{ route('upcomingevent-destroy', $upcomingevent->id) }}" method="POST">
+                                                                                    <form action="{{ route('upcomingevents-destroy', $upcomingevent->id) }}" method="POST">
                                                                                            @csrf
                                                                                            {{ method_field('DELETE') }}
                                                                                            <a class="btn btn-primary" title="Respond to upcoming Event" href="{{ route('upcomingevent-show', $upcomingevent->id) }}"><i class="fa fa-eye"></i></a>
-                                                                                           <button title="Delete upcomingEvent" onclick="return confirm('Are you sure you want to delete this...?')" class="btn btn-danger" href="#"><i class="fa fa-trash"></i></button>
+                                                                                           <button title="Delete upcoming Event" onclick="return confirm('Are you sure you want to delete this...?')" class="btn btn-danger" href="#"><i class="fa fa-trash"></i></button>
                                                                                     </form>
                                                                              </div>
                                                                       </td>
@@ -77,10 +77,10 @@
                                                                </tr>
                                                         </tfoot>
                                                  </table>
-                                                 {{ $upcomingevents->links() }}
-                                          </div>
-                                          <!-- /.card-body -->
-                                   </div>
+                                                </div>
+                                                <!-- /.card-body -->
+                                            </div>
+                                            {{ $upcomingevents->links() }}
                                    <!-- /.card -->
                             </div>
                             <!-- /.col -->

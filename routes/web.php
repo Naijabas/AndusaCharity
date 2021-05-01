@@ -35,6 +35,7 @@ Route::get('/upcomingEvents', [App\Http\Controllers\UpcomingEventsController::cl
 
 Auth::routes();
 
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 /**
@@ -51,7 +52,6 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
  * admin routes
  *
  */
-
       Route::get('/admin', function () {  return view('server.admin.create'); })->name('admin')->middleware('auth');
       Route::post('/admin-create', [App\Http\Controllers\AdminController::class, 'store'] )->name('admin-create');
       Route::get('/admins', [App\Http\Controllers\AdminController::class, 'index'] )->name('admins');
@@ -75,10 +75,10 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
  * Upcoming Events routes
  */
     Route::get('/upcomingevent', function () {  return view('server.upcomingevent.create'); })->name('upcomingevent');
-    Route::post('/upcomingevents-create', [App\Http\Controllers\UpcomingEventsController::class, 'store'] )->name('upcominevents-create');
+    Route::post('/upcomingevent-create', [App\Http\Controllers\UpcomingEventsController::class, 'store'] )->name('upcomingevent-create');
     Route::get('/upcomingevents', [App\Http\Controllers\UpcomingEventsController::class, 'index'] )->name('upcomingevents');
-    Route::get('/upcomingevents-show/{id}', [App\Http\Controllers\UpcomingEventsController::class, 'show'] )->name('upcomingevents-show');
-    Route::patch('/upcomingevents-update/{id}', [App\Http\Controllers\UpcomingEventsController::class, 'update'] )->name('upcomingevents-update');
+    Route::get('/upcomingevent-show/{id}', [App\Http\Controllers\UpcomingEventsController::class, 'show'] )->name('upcomingevent-show');
+    Route::patch('/upcomingevent-update/{id}', [App\Http\Controllers\UpcomingEventsController::class, 'update'] )->name('upcomingevent-update');
     Route::delete('/upcomingevents-destroy/{id}', [App\Http\Controllers\UpcomingEventsController::class, 'destroy'] )->name('upcomingevents-destroy');
     //end
 

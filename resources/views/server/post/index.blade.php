@@ -51,7 +51,7 @@
                                                                @foreach($posts as $post)
                                                                <tr>
                                                                       <td>{{ $i++ }}</td>
-                                                                      <td><img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$post->banner_image) }}" alt="" width="20"></td>
+                                                                      <td><img class="profile-user-img img-fluid img-circle"  src="{{asset('/'.$post->banner_image) }}" alt="" ></td>
                                                                       <td>{{ $post->title }}</td>
                                                                       <td>{{ $post->created_at->diffForHumans() }}</td>
                                                                       <td>

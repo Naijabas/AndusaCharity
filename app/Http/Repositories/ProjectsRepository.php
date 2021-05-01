@@ -39,6 +39,7 @@ class ProjectsRepository
 
     public function allProject()
     {
+        $this->model->with('user')->paginate(3);
         return $this->model->paginate(5);
     }
 

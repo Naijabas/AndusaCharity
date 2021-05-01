@@ -10,7 +10,7 @@
                      </div>
                      <div class="mb-2 row">
                             <div class="col-sm-6">
-                                   <h1>project Details</h1>
+                                   <h1>Project Details</h1>
                             </div>
                             <div class="col-sm-6">
                                    <ol class="breadcrumb float-sm-right">
@@ -40,7 +40,7 @@
                                           <div class="p-0 card-body">
                                                  <div class="mailbox-read-info">
                                                         <h5>project Title : {{ $project->title}}</h5>
-                                                        <h6>From: Admin
+                                                        <h6>by: {{$project->user->name}}
                                                     <span class="float-right mailbox-read-time">{{ $project->created_at->diffForHumans() }}</span></h6>
                                                  </div>
                                                  <h5>Picture:</h5> <img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$project->passport) }}" alt="" >
@@ -48,7 +48,7 @@
                                                  <tr>
                                                  <div class="p-4 mailbox-read-post">
                                                         <p class="text-justify">
-                                                               {!! $project->body !!}
+                                                               {!! $project->post !!}
                                                         </p>
                                                  </div>
                                                  <!-- /.mailbox-read-post -->
@@ -101,23 +101,23 @@
                                                         <strong>{{ $message }}</strong>
                                                  </span>
                                                  @enderror
-                                          </div>
+                                                   </div>
                                                         <div class="mb-3">
-                                                        <label for="exampleInputEmail1"> Image</label>
-                                                        <div class="custom-file">
-                                                               <input type="file" class="custom-file-input @error('passport') is-invalid @enderror" id="exampleInputFile" name="passport">
-                                                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                                               @error('passport')
-                                                               <span class="invalid-feedback" role="alert">
-                                                                      <strong>{{ $message }}</strong>
-                                                               </span>
-                                                               @enderror
-                                                        </div>
-                                                 </div>
+                                                            <label for="exampleInputEmail1">Image</label>
+                                                            <div class="custom-file">
+                                                                   <input type="file" class="custom-file-input @error('passport') is-invalid @enderror" id="exampleInputFile" name="passport">
+                                                                   <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                                   @error('passport')
+                                                                   <span class="invalid-feedback" role="alert">
+                                                                          <strong>{{ $message }}</strong>
+                                                                   </span>
+                                                                   @enderror
+                                                            </div>
+                                                     </div>
 
                                           <div class="mb-3">
                                                  <label for="title">Body</label>
-                                                 <textarea name="body" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $project->body }}</textarea>
+                                                 <textarea name="body" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $project->post }}</textarea>
                                                  @error('body')
                                                  <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

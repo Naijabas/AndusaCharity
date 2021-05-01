@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Concerns\UsesUuid;
 
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes, UsesUuid;
@@ -61,11 +62,18 @@ class User extends Authenticatable
     }
 
     public function posts(){
-        return $this->belongsToMany('App\Post');
+
+        return $this->hasMany(Post::class);
+
     }
 
     public function projects(){
-        return $this->belongsToMany('App\Project');
+        return $this->hasMany(Project::class);
+    }
+    public function upcomingevents(){
+
+        return $this->hasMany(Upcomingevent::class);
+        
     }
 
 }

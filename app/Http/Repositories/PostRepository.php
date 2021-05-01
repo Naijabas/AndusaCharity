@@ -2,6 +2,7 @@
 
 namespace App\Http\Repositories;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 
@@ -34,7 +35,7 @@ class PostRepository
         return  $this->model->create([
             'title' => $request->title,
             'body' =>  $request->body,
-            'banner_image' =>  $fileNameToStore,
+            'banner_image' => $fileNameToStore,
             'user_id' => auth()->user()->id
             // 'user_id' => $request->input(auth()->user()->id),
 
@@ -43,6 +44,10 @@ class PostRepository
 
     public function allPost()
     {
+    // return User::has('posts')->with('posts')->get();
+    //  return User::has('posts')->get();
+    //    return User::with('posts')->get();
+        $this->model->with('user')->paginate(3);
         return $this->model->paginate(10);
     }
 
@@ -55,7 +60,7 @@ class PostRepository
     {
         $request->validate([
             'title' => 'required',
-            'banner_image' => 'required',
+            'banner_image' => 'nullable',
             'body' => 'required',
         ]);
 

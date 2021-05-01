@@ -10,7 +10,7 @@ class UpcomingEventsRepository
 {
     public $model;
 
-    public function __construct(UpcomingEvents $model)
+    public function __construct(Upcomingevents $model)
     {
         $this->model = $model;
     }
@@ -19,6 +19,7 @@ class UpcomingEventsRepository
     {
         $request->validate([
             'title' => 'required',
+            'passport' =>'required|image',
             'post' => 'required|max:225'
 
         ]);
@@ -33,17 +34,20 @@ class UpcomingEventsRepository
         return  $this->model->create([
             'title' => $request->title,
             'passport' => $fileNameToStore,
-            'post' => $request->post
+            'post' => $request->post,
+            'user_id' => auth()->user()->id
         ]);
     }
 
     public function allUpcomingevents()
     {
+        $this->model->with('user')->paginate(3);
         return $this->model->paginate(2);
     }
 
     public function showByID($id)
     {
+        
         return $this->model->findOrFail($id);
     }
 
@@ -51,7 +55,7 @@ class UpcomingEventsRepository
     {
         $request->validate([
             'title' => 'required',
-            'passport' =>  'required|image',
+            'passport' =>'required|image',
             'post' => 'required|max:225'
 
         ]);
@@ -64,8 +68,9 @@ class UpcomingEventsRepository
         }
         $this->model->findOrFail($id)->update([
             'title' => $request->title,
-            'passport' => $fileNameToStore,
             'post' => $request->post,
+            'user_id' => auth()->user()->id,
+            'passport' => $fileNameToStore
            ]);
 
         return $this->model;

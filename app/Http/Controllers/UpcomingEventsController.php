@@ -35,21 +35,21 @@ class UpcomingEventsController extends Controller
     public function index()
     {
     $upcomingevents = $this->UpcomingEventsRepository->allUpcomingevents();
-    return view('server.upcomingevent.index', compact('upcomingevent'));
+    return view('server.upcomingevent.index', compact('upcomingevents'));
 
     }
 
-    // public function upcomingevents($id)
-    // {
-    //    $upcomingevents = $this->UpcomingEventsRepository->showByID($id);
-    //     return view('upcomingevent', compact('upcomingevent'));
-    // }
+    public function upcomingevents($id)
+    {
+       $upcomingevent = $this->UpcomingEventsRepository->showByID($id);
+        return view('upcomingevent', compact('upcomingevent'));
+    }
 
 
     public function show($id)
       {
-        $upcomingevents = $this->UpcomingEventsRepository->showByID($id);
-        return view('server.upcomingevent.show', compact('upcomingevents'));
+        $upcomingevent = $this->UpcomingEventsRepository->showByID($id);
+        return view('server.upcomingevent.show', compact('upcomingevent'));
       }
 
     /**

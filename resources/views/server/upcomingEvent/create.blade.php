@@ -25,7 +25,7 @@
                             <div class="card card-outline card-info">
                                    <div class="card-header">
                                           <h3 class="card-title">
-                                                 <a href="{{route('upcomingEvents')}}" class="btn btn-success">Upcoming Events</a>
+                                                 <a href="{{route('upcomingevents')}}" class="btn btn-success">Upcoming Events</a>
                                           </h3>
                                           <!-- tools box -->
                                           <div class="card-tools">
@@ -39,7 +39,7 @@
                                    <!-- /.card-header -->
                                    <div class="card-body pad">
                                           <x-alerts.success />
-                                          <form action="{{ route('upcomingEvent-create') }}" method="post" enctype="multipart/form-data">
+                                          <form action="{{ route('upcomingevent-create') }}" method="post" enctype="multipart/form-data">
                                                  @csrf
                                                  <div class="mb-3">
                                                         <label for="exampleInputEmail1">Title</label>

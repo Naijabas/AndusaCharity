@@ -15,9 +15,10 @@ class Projects extends Model
     ];
 
 
-    // public function projects(){
-    //     return $this->belongsToMany('App\Project');
-    // }
+    public function user() {
 
+        return $this->belongsTo(User::class);
+
+ }
 
 }

@@ -10,7 +10,7 @@
                      </div>
                      <div class="mb-2 row">
                             <div class="col-sm-6">
-                                   <h1>upcomingEvent Details</h1>
+                                   <h1>Upcoming Event Details</h1>
                             </div>
                             <div class="col-sm-6">
                                    <ol class="breadcrumb float-sm-right">
@@ -30,7 +30,7 @@
                             <div class="col-md-12">
                                    <div class="card card-primary card-outline">
                                           <div class="card-header">
-                                                 <h3 class="card-title"><a href="{{route('upcomingevents')}}" class="btn btn-success">upcomingEvent Posts</a></h3>
+                                                 <h3 class="card-title"><a href="{{route('upcomingevents')}}" class="btn btn-success">Upcoming Event Posts</a></h3>
                                                  <div class="card-tools">
                                                         <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
                                                         <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
@@ -39,8 +39,8 @@
                                           <!-- /.card-header -->
                                           <div class="p-0 card-body">
                                                  <div class="mailbox-read-info">
-                                                        <h5>upcoming Event Title : {{ $upcomingevent->title}}</h5>
-                                                        <h6>From: Admin
+                                                        <h5>Upcoming Event Title : {{ $upcomingevent->title}}</h5>
+                                                        <h6>written on: {{ $upcomingevent->created_at}}
                                                     <span class="float-right mailbox-read-time">{{ $upcomingevent->created_at->diffForHumans() }}</span></h6>
                                                  </div>
                                                  <h5>Picture:</h5> <img class="profile-user-img img-fluid img-circle"  src="{{asset('storage/uploads/'.$upcomingevent->passport) }}" alt="" >
@@ -57,9 +57,9 @@
                                           <!-- /.card-footer -->
                                           <div class="card-footer">
                                                  <div class="float-right">
-                                                        <a href="" type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModalLong"><i class="fas fa-edit"></i> Edit upcomingEvent</a>
+                                                        <a href="" type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModalLong"><i class="fas fa-edit"></i> Edit Upcoming Event</a>
                                                  </div>
-                                                 <form action="{{ route('upcomingEvent-destroy', $upcomingevent->id) }}" method="POST">
+                                                 <form action="{{ route('upcomingevents-destroy', $upcomingevent->id) }}" method="POST">
                                                         @csrf
                                                         {{ method_field('DELETE') }}
                                                         <a title="Delete upcomingEvent" onclick="return confirm('Are you sure you want to delete this...?')" href="#" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</a>
@@ -90,12 +90,12 @@
                             </div>
                             <div class="modal-body">
                                    <x-alerts.success />
-                                   <form method="post" action="{{ route('upcomingEvent-update', $upcomingEvent->id) }}">
+                                   <form method="post" action="{{ route('upcomingevent-update', $upcomingevent->id) }}">
                                           @csrf
                                           {{ method_field('PATCH') }}
                                           <div class="mb-3">
                                                  <label for="title">Title</label>
-                                                 <input type="text" name="title" value="{{ $upcomingEvent->title }}" class="form-control @error('title') is-invalid @enderror" placeholder="Enter Event title">
+                                                 <input type="text" name="title" value="{{ $upcomingevent->title }}" class="form-control @error('title') is-invalid @enderror" placeholder="Enter Event title">
                                                  @error('title')
                                                  <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -117,8 +117,8 @@
 
                                           <div class="mb-3">
                                                  <label for="title">Body</label>
-                                                 <textarea name="body" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $upcomingEvent->body }}</textarea>
-                                                 @error('body')
+                                                 <textarea name="post" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $upcomingevent->post }}</textarea>
+                                                 @error('post')
                                                  <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                  </span>
