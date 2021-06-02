@@ -38,6 +38,7 @@ class AdminRepository
             'passport' =>  $fileNameToStore ,
             'password' => Hash::make($request->password)
         ]);
+        
         $role = Role::where('name', $request->role)->first();
         $admin->roles()->attach($role->id);
         return $admin;

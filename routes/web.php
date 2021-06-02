@@ -22,8 +22,20 @@ Route::get('/adminreg', function () {  return view('adminreg'); })->name('adminr
 
 
 //web master registration
-Route::post('/adminreg', [App\Http\Controllers\RegisterController::class, 'adminreg'])->name('adminreg');
-Route::post('/createadmin', [App\Http\Controllers\RegisterController::class, 'createadmin'])->name('createadmin');
+
+Route::get('/adminreg', [App\Http\Controllers\AdministratorController::class, 'adminreg'])->name('adminreg');
+Route::post('/createadmin', [App\Http\Controllers\AdministratorController::class, 'createadmin'])->name('createadmin');
+
+/**
+ * REGISTRATION page
+ */
+ Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'store'] )->name('register');
+
+//end
+
+//login for registrant
+
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 
 
 Route::post('/create-contact', [App\Http\Controllers\ContactController::class, 'store'] )->name('create-contact');
@@ -35,10 +47,8 @@ Route::get('/upcomingEvents', [App\Http\Controllers\UpcomingEventsController::cl
 
 Auth::routes();
 
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
-Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-/**
+/*
  * contact routes
  */
        Route::get('/contacts', [App\Http\Controllers\ContactController::class, 'index'] )->name('contacts');
@@ -106,9 +116,3 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
     Route::delete('/post-destroy/{id}', [App\Http\Controllers\PostController::class, 'destroy'] )->name('post-destroy');
     //end
 
-/**
- * REGISTRATION
- */
-Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'store'] )->name('register');
-
-//end

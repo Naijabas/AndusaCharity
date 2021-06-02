@@ -57,8 +57,14 @@ class User extends Authenticatable
 
     public function roles() {
 
-        return $this->belongsToMany(Role::class,);
+        return $this->belongsToMany(Role::class);
 
+    }
+
+    public function hasRole($role){
+
+        return $this->roles()->where('roles.name',$role)->exists();
+        
     }
 
     public function posts(){
@@ -70,10 +76,11 @@ class User extends Authenticatable
     public function projects(){
         return $this->hasMany(Project::class);
     }
+
     public function upcomingevents(){
 
         return $this->hasMany(Upcomingevent::class);
-        
+
     }
 
 }

@@ -85,7 +85,7 @@
                                    <div class="grid-content-wrapper">
                                           <h4>Charity for Education</h4>
                                           <p>Harness the talent and resources of Nigerians in Diaspora.</p>
-                                          <a href="activities.html" title="">Read More</a>
+                                          <a href="#" title="">Read More</a>
                                    </div>
                             </div>
                             {{-- <div class="clearfix col-md-4 top-off">

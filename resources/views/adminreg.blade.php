@@ -55,7 +55,7 @@
                             </div>
                      </div>
                      <div class="clearfix"></div>
-                     <h2>IF YOU GOT ANY QUESTIONS<br>
+                     <h2><br>
                             ADMIN SIGNUP</h2>
                      <x-alerts.success />
                      <form class="clearfix con-form" method="POST" action="{{ route('createadmin') }}">
@@ -63,7 +63,7 @@
                             <div class="cont" style="background-color: #e7f5ee;">
                                 <div class="form sign-in">
                                   @csrf
-                                  <h2>Welcome back,</h2>
+                                  <h2>Welcome back,</h2><p>
 
                                   <label >
                                     <span style="color: black;">Name</span>
@@ -85,7 +85,7 @@
                                   </label>
 
                             <div class="col-xs-12 submit-button center">
-                                   <input type="submit" value="Login" class="btn2" id="sub" style="border:none; margin: 20px 0 0 0">
+                                   <input type="submit" value="Register" class="btn2" id="sub" style="border:none; margin: 20px 0 0 0">
                             </div>
                      </form>
               </div>
